@@ -46,6 +46,7 @@ video {
     box-shadow: 0 7px 50px rgb(214, 223, 213);
     font-family: "Poppins", sans-serif;
     box-sizing: border-box;
+    background-image: url('../../images/background-01.avif');
 
     .container {
         height: 95vh;
@@ -53,6 +54,7 @@ video {
         border-radius: 10px;
         -webkit-box-shadow: 2px 4px 10px 1px rgba(0, 0, 0, 0.47);
         box-shadow: 2px 4px 10px 1px rgba(201, 201, 201, 0.47);
+        background-color: #fff;
     }
 
     form {
@@ -100,13 +102,13 @@ video {
             }
 
             .input:focus+.placeholder {
-                color: #0266b8;
+                color: #0b74dd;
                 background-color: #fff;
                 font-weight: 600;
             }
 
             .input:focus {
-                border: 1px solid #0266b8;
+                border: 1px solid #0b74dd;
             }
 
         }
@@ -146,7 +148,7 @@ video {
 
             .back-button {
                 padding: 10px 30px;
-                background-color: orange;
+                background-color: #96b3cc;
                 border: none;
                 color: #fff;
                 border-radius: 5px;
@@ -157,7 +159,7 @@ video {
 
             .save-button {
                 padding: 10px 30px;
-                background-color: orange;
+                background-color:  #96b3cc;
                 border: none;
                 color: #fff;
                 border-radius: 5px;

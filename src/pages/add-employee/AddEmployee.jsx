@@ -40,9 +40,9 @@ const AddEmployee = () => {
     return (
         <div className='add-employee'>
             <div className="employee flex">
-                <div className="side-img">
+                {/* <div className="side-img">
                     <img src={img} alt="image" className='img' />
-                </div>
+                </div> */}
                 <div className="form">
                     <form>
                         <div className="field-container" style={{ display: "flex" }}>

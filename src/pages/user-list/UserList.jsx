@@ -252,7 +252,9 @@ const UserList = () => {
                 <Link to="/home">
                     <button className='back'>Back To Home</button>
                 </Link>
-                <button className='add-employee'>Add Employee</button>
+                <Link to='/add-employee'>
+                    <button className='add'>Add Employee</button>
+                </Link>
             </div>
         </div>
     )

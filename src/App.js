@@ -6,8 +6,8 @@ import User from "./pages/new-user/User";
 import PayrollForm from "./pages/payroll/PayrollForm";
 import { Routes, Route, BrowserRouter as Router } from "react-router-dom";
 import OfferLetter from "./pages/offer-letter/OfferLetter";
-import AddEmployee from "./pages/add-employee/AddEmployee";
 import HikeForm from "./pages/hike-letter/HikeForm";
+import AddEmployee from "./pages/add-employee/AddEmployee";
 
 function App() {
   return (
@@ -23,6 +23,7 @@ function App() {
           <Route path="/payroll" element={<PayrollForm />} />
           <Route path="/offerletter" element={<OfferLetter />} />
           <Route path="/hikeletter" element={<HikeForm />} />
+          <Route path="/add-employee" element={<AddEmployee />} />
         </Routes>
       </Router>
     </div>

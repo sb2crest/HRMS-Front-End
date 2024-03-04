@@ -77,9 +77,9 @@ const OfferLetter = () => {
         <>
             <div className='offer-letter'>
                 <div className="offer-container flex">
-                    <div className="video">
+                    {/* <div className="video">
                         <img src={video} className='gif' />
-                    </div>
+                    </div> */}
                     <div className="form">
                         <form>
                             <div className="field-container" style={{ display: "flex" }}>
