@@ -1,9 +1,6 @@
-import React, { useEffect, useState } from 'react';
-import hikegif from '../../images/hike_gif.jpg';
+import React, { useState } from 'react';
 import './hikeform.scss';
 import axios from 'axios';
-import { IoArrowBackCircleOutline } from "react-icons/io5";
-import { Link } from 'react-router-dom';
 import Snackbar from "@mui/material/Snackbar";
 
 const HikeForm = () => {
@@ -106,7 +103,6 @@ const HikeForm = () => {
             <div className='hike'>
                 <div className="hike-letter flex">
                     <div className="form">
-                        {/* <Link to='/home'> <button className='back'> <IoArrowBackCircleOutline /></button></Link> */}
                         <form>
                             <div className="field-container" style={{ display: "flex" }}>
                                 <div className="input-container">
