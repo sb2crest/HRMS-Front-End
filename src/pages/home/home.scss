@@ -1,0 +1,35 @@
+// body{
+//     background-color: rgb(243, 250, 252);
+// }
+
+.home {
+    display: flex;
+    
+    .sidebar {
+        position: fixed;
+        top: 0;
+        left: 0;
+    }
+
+    .homeContainer {
+        flex: 6;
+        margin-left: 160px;
+
+        .widgets,
+        .attendance-charts {
+            display: flex;
+            padding: 25px;
+            gap: 20px;
+        }
+
+        .attendance-charts {
+            padding: 5px 20px;
+        }
+
+        .featured {
+            // display: flex;
+            padding: 25px;
+            // gap: 20px;
+        }
+    }
+}

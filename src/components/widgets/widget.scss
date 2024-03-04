@@ -1,0 +1,185 @@
+.user-widget {
+    display: flex;
+    justify-content: space-between;
+    flex: 1;
+    padding: 10px;
+    -webkit-box-shadow: 2px 4px 10px 1px rgba(0, 0, 0, 0.47);
+    box-shadow: 2px 4px 10px 1px rgba(201, 201, 201, 0.47);
+    border-radius: 10px;
+    height: 100px;
+    background-color: #E0EAE9;
+
+    /* user widget*/
+    .center {
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        width: 100%;
+
+        .icon {
+            border: 1px solid white;
+            border-radius: 25px;
+            padding: 10px;
+            color: green;
+            font-size: 25px;
+            background-color: white;
+        }
+
+        .right {
+            display: flex;
+            flex-direction: column;
+
+            .total {
+                font-size: 30px;
+                font-weight: 600;
+            }
+
+            .title {
+                font-size: 14px;
+                color: green;
+                font-weight: 600;
+            }
+        }
+    }
+}
+
+/* average salary widget*/
+.salary-widget {
+    display: flex;
+    justify-content: space-between;
+    flex: 1;
+    padding: 10px;
+    -webkit-box-shadow: 2px 4px 10px 1px rgba(0, 0, 0, 0.47);
+    box-shadow: 2px 4px 10px 1px rgba(201, 201, 201, 0.47);
+    border-radius: 10px;
+    height: 100px;
+    background-color: #F2DFDB;
+
+    .center {
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        width: 100%;
+
+        .icon {
+            border: 1px solid white;
+            border-radius: 25px;
+            padding: 10px;
+            color: rgb(245, 81, 22);
+            font-size: 25px;
+            background-color: white;
+        }
+
+        .right {
+            display: flex;
+            flex-direction: column;
+
+            .total {
+                font-size: 30px;
+                font-weight: 600;
+            }
+
+            .title {
+                font-size: 14px;
+                color: rgb(245, 81, 22);
+                font-weight: 600;
+            }
+        }
+
+    }
+}
+
+/*upcoming salary widget*/
+.upcoming-widget {
+    display: flex;
+    justify-content: space-between;
+    flex: 1;
+    padding: 10px;
+    -webkit-box-shadow: 2px 4px 10px 1px rgba(0, 0, 0, 0.47);
+    box-shadow: 2px 4px 10px 1px rgba(201, 201, 201, 0.47);
+    border-radius: 10px;
+    height: 100px;
+    background-color: #EAF3FC;
+
+    .center {
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        width: 100%;
+
+        .icon {
+            border: 1px solid white;
+            border-radius: 25px;
+            padding: 10px;
+            color: rgb(128, 205, 231);
+            font-size: 25px;
+            background-color: white;
+        }
+
+        .right {
+            display: flex;
+            flex-direction: column;
+
+            .total {
+                font-size: 25px;
+                font-weight: 600;
+            }
+
+            .title {
+                font-size: 14px;
+                color: rgb(128, 205, 231);
+                font-weight: 600;
+            }
+        }
+
+    }
+
+}
+
+/* attendence widget*/
+.attendence-widget {
+    display: flex;
+    justify-content: space-between;
+    flex: 1;
+    padding: 10px;
+    -webkit-box-shadow: 2px 4px 10px 1px rgba(0, 0, 0, 0.47);
+    box-shadow: 2px 4px 10px 1px rgba(201, 201, 201, 0.47);
+    border-radius: 10px;
+    height: 100px;
+    background-color: #FDF9F0;
+
+    .center {
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        width: 100%;
+
+        .icon {
+            border: 1px solid white;
+            border-radius: 25px;
+            padding: 10px;
+            color: orange;
+            font-size: 25px;
+            background-color: white;
+        }
+
+        .right {
+            display: flex;
+            flex-direction: column;
+
+            .total {
+                font-size: 30px;
+                font-weight: 600;
+            }
+
+            .title {
+                font-size: 14px;
+                color: orange;
+                font-weight: 600;
+            }
+        }
+
+    }
+
+
+}

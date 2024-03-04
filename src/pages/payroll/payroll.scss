@@ -1,0 +1,170 @@
+/* default styles */
+.flex {
+    display: flex;
+    align-items: center;
+}
+
+.grid {
+    display: grid;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.icon {
+    font-size: 12px;
+    cursor: pointer;
+}
+
+img,
+video {
+    height: auto;
+    width: 100%;
+}
+
+.btn {
+    border: none;
+    outline: none;
+    cursor: pointer;
+    border-radius: 8px;
+    padding: .8rem 1rem;
+}
+
+.btn .icon {
+    margin-left: .5rem;
+}
+
+/* page style*/
+.payroll {
+    height: 100vh;
+    width: 100%;
+    margin: auto;
+    border-radius: 10px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 7px 50px rgb(214, 223, 213);
+    font-family: "Poppins", sans-serif;
+    box-sizing: border-box;
+
+    .container {
+        height: 95vh;
+        justify-content: space-between;
+        border-radius: 10px;
+        -webkit-box-shadow: 2px 4px 10px 1px rgba(0, 0, 0, 0.47);
+        box-shadow: 2px 4px 10px 1px rgba(201, 201, 201, 0.47);
+    }
+
+    form {
+        .hr-text-hr {
+            display: flex;
+            align-items: center;
+        }
+
+        .hr-text-hr hr {
+            flex: 1;
+            border: none;
+            border-top: 1px solid rgb(104, 102, 102);
+            margin: 17px 10px;
+        }
+
+        .text {
+            font-size: 16px;
+            color: rgb(107, 105, 105);
+            font-weight: 600;
+        }
+
+        .input-container {
+            position: relative;
+            margin: 10px 30px;
+
+            .input {
+                padding: 10px;
+                box-sizing: border-box;
+                outline: none;
+                border: 1px solid rgb(62, 61, 61);
+                border-radius: 5px;
+            }
+
+            .placeholder {
+                position: absolute;
+                top: -10px;
+                left: 8px;
+                font-size: 14px;
+                padding: 0 5px;
+                color: rgb(62, 61, 61);
+                transition: 0.3s;
+                pointer-events: none;
+                font-size: 14px;
+                background-color: #fff;
+            }
+
+            .input:focus+.placeholder {
+                color: #0266b8;
+                background-color: #fff;
+                font-weight: 600;
+            }
+
+            .input:focus {
+                border: 1px solid #0266b8;
+            }
+
+        }
+
+        .total-amount {
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            border: 1px solid rgb(208, 204, 204);
+            padding: 5px;
+            margin: 2px 15px;
+            border-radius: 5px;
+
+            .header {
+                font-weight: 700;
+                font-size: 18px;
+            }
+
+            .sub-header {
+                font-size: 12px;
+                color: gray;
+                font-weight: 500;
+            }
+
+            .amount {
+                font-size: 18px;
+                font-weight: 700;
+                color: green;
+            }
+        }
+
+        .button {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin: 20px;
+
+            .back-button {
+                padding: 10px 30px;
+                background-color: orange;
+                border: none;
+                color: #fff;
+                border-radius: 5px;
+                font-size: 15px;
+                font-weight: 600;
+                cursor: pointer;
+            }
+
+            .save-button {
+                padding: 10px 30px;
+                background-color: orange;
+                border: none;
+                color: #fff;
+                border-radius: 5px;
+                font-size: 15px;
+                font-weight: 600;
+                cursor: pointer;
+            }
+        }
+    }
+}

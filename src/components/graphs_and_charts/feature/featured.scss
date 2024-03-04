@@ -1,0 +1,40 @@
+
+.featured {
+    padding: 15px;
+   
+
+    .fc-direction-ltr {
+        height: 500px;
+        -webkit-box-shadow: 2px 4px 10px 1px rgba(0, 0, 0, 0.47);
+        box-shadow: 2px 4px 10px 1px rgba(201, 201, 201, 0.47);
+        border-radius: 0px;
+        padding: 14px;
+        background-color: #ffff;
+    }
+
+    .fc .fc-toolbar-title {
+        // color: rgb(248, 210, 138);
+        color: rgb(161, 159, 159);
+    }
+
+    .fc .fc-button-primary {
+        background-color: orange;
+        border: none;
+        border-radius: 0;
+        color: white;
+        font-size: 16px;
+    }
+
+    .fc .fc-button-primary:hover {
+        background-color: orange;
+        border: none;
+    }
+
+    .fc-direction-ltr .fc-button-group > .fc-button:not(:first-child) {
+        margin: 10px;
+    }
+
+    .fc-direction-ltr .fc-button-group > .fc-button:not(:last-child) {
+        margin: 10px;
+    }
+}

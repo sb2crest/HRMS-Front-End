@@ -1,0 +1,81 @@
+.div {
+    .employee-list {
+        .employee-grid {
+            margin: 12px;
+
+            .MuiDataGrid-columnHeaders {
+                background-color: #bbd9f8;
+            }
+
+            .css-wop1k0-MuiDataGrid-footerContainer {
+                background-color: #bbd9f8;
+            }
+
+            .css-rtrcn9-MuiTablePagination-root .MuiTablePagination-selectLabel {
+                color: white;
+            }
+
+            .css-194a1fa-MuiSelect-select-MuiInputBase-input.css-194a1fa-MuiSelect-select-MuiInputBase-input.css-194a1fa-MuiSelect-select-MuiInputBase-input {
+                color: white;
+            }
+
+            .css-levciy-MuiTablePagination-displayedRows {
+                color: white;
+            }
+
+            .css-t89xny-MuiDataGrid-columnHeaderTitle {
+                color: white;
+                font-size: 15px;
+                font-weight: 500;
+            }
+
+            .css-i4bv87-MuiSvgIcon-root {
+                color: rgb(95, 213, 252);
+            }
+
+            .status-active {
+                color: green;
+                background-color: rgba(0, 128, 0, 0.151);
+                padding: 4px 12px;
+                border-radius: 5px;
+            }
+
+            .status-leave {
+                color: rgb(246, 31, 31);
+                background-color: rgb(252, 182, 182);
+                padding: 4px 12px;
+                border-radius: 5px;
+            }
+        }
+    }
+
+    .button {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-left: 20px;
+        margin-right: 20px;
+
+        .back {
+            padding: 10px 30px;
+            background-color: #3a9af9;
+            border: none;
+            color: #fff;
+            border-radius: 5px;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        .add-employee {
+            padding: 10px 30px;
+            background-color: #3a9af9;
+            border: none;
+            color: #fff;
+            border-radius: 5px;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+        }
+    }
+}

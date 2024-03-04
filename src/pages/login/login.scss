@@ -1,0 +1,280 @@
+/* default styles */
+.flex {
+    display: flex;
+    align-items: center;
+}
+
+.grid {
+    display: grid;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.icon {
+    font-size: 12px;
+    cursor: pointer;
+}
+
+img,
+video {
+    height: auto;
+    width: 100%;
+}
+
+.btn {
+    border: none;
+    outline: none;
+    cursor: pointer;
+    border-radius: 8px;
+    padding: .8rem 1rem;
+}
+
+.btn .icon {
+    margin-left: .5rem;
+}
+
+.login {
+    height: 100vh;
+    width: 100%;
+    margin: auto;
+    overflow: hidden;
+    box-shadow: 0 7px 50px rgb(214, 223, 213);
+
+    .container {
+        height: 75vh;
+        width: 60%;
+        margin: auto;
+        justify-content: space-between;
+        border-radius: 0px;
+        -webkit-box-shadow: 2px 4px 10px 1px rgba(0, 0, 0, 0.47);
+        box-shadow: 2px 4px 10px 1px rgba(201, 201, 201, 0.47);
+
+        .video {
+            position: relative;
+            display: flex;
+            flex-basis: 50%;
+            width: 70%;
+            height: 100%;
+            padding: 0 1.5rem;
+            text-align: center;
+            justify-content: center;
+            flex-direction: column;
+            margin: auto;
+            border-radius: 10px;
+            overflow: hidden;
+
+            .gif,
+            .footer {
+                position: absolute;
+            }
+
+            .gif {
+                height: 100%;
+                width: 100%;
+                object-fit: cover;
+                top: 0;
+                bottom: 0;
+                left: 0;
+                right: 0;
+            }
+
+            .footer {
+                bottom: 10px;
+                padding: 0 1rem;
+                height: 60px;
+                background: rgba(255, 255, 255, 0.248);
+                left: 0;
+                right: 0;
+                justify-content: space-between;
+                backdrop-filter: blur(1px);
+                border-radius: 10px;
+            }
+        }
+
+        .form-div {
+            flex-basis: 50%;
+            margin: auto;
+            flex-direction: column;
+            gap: 1.5rem;
+            transform: translateY(-1rem);
+
+            .header-div {
+                text-align: center;
+
+                img {
+                    width: 85px;
+                }
+            }
+
+            form {
+                gap: 1rem;
+
+                .role {
+                    justify-content: space-evenly;
+
+                    /* admin */
+                    .tooltip {
+                        position: relative;
+
+                    }
+
+                    .tooltip .tooltiptext {
+                        visibility: hidden;
+                        background-color: rgb(235, 231, 231);
+                        text-align: center;
+                        border-radius: 6px;
+                        padding: 0.3rem;
+                        position: absolute;
+                        z-index: 1;
+                        top: -5px;
+                        right: 105%;
+                        font-size: 13px;
+                        color: black;
+                        right: calc(100% + 8px);
+                        color: rgb(120, 119, 119);
+                    }
+
+                    .tooltip .tooltiptext::after {
+                        content: "";
+                        position: absolute;
+                        top: 50%;
+                        right: -9px;
+                        margin-top: -5px;
+                        border-width: 5px;
+                        border-style: solid;
+                        border-color: transparent transparent transparent rgb(232, 231, 231);
+                    }
+
+                    .tooltip:hover .tooltiptext {
+                        visibility: visible;
+                    }
+
+                    .admin {
+                        background: rgb(232, 231, 231);
+                        padding: 0.5rem 1rem;
+                        border-radius: 10px;
+                        cursor: pointer;
+
+                        .icon {
+                            color: orange;
+                            font-size: 20px;
+                            cursor: pointer;
+                        }
+                    }
+
+                    /* employee */
+                    .tooltip-employee {
+                        position: relative;
+                    }
+
+                    .tooltip-employee .tooltiptext-employee {
+                        visibility: hidden;
+                        background-color: rgb(235, 231, 231);
+                        text-align: center;
+                        border-radius: 6px;
+                        padding: 0.3rem;
+                        position: absolute;
+                        z-index: 1;
+                        top: -5px;
+                        left: 105%;
+                        font-size: 13px;
+                        color: rgb(120, 119, 119);
+                        left: calc(100% + 8px);
+                    }
+
+                    .tooltip-employee .tooltiptext-employee::after {
+                        content: "";
+                        position: absolute;
+                        top: 50%;
+                        right: 100%;
+                        margin-top: -5px;
+                        border-width: 5px;
+                        border-style: solid;
+                        border-color: transparent rgb(235, 231, 231) transparent transparent;
+                    }
+
+                    .tooltip-employee:hover .tooltiptext-employee {
+                        visibility: visible;
+                    }
+
+                    .employee {
+                        background: rgb(232, 231, 231);
+                        padding: 0.5rem 1rem;
+                        border-radius: 10px;
+                        cursor: pointer;
+
+                        .icon {
+                            color: orange;
+                            font-size: 20px;
+                            cursor: pointer;
+                        }
+                    }
+                }
+
+                .input-div {
+
+                    input {
+                        background: none;
+                        outline: none;
+                        border: none;
+                        width: 200px;
+                        font-weight: 600;
+                    }
+
+                    label {
+                        color: black;
+                        font-weight: 400;
+                        font-size: 14px;
+                        display: block;
+                    }
+
+                    .input {
+                        gap: .5rem;
+                        padding: 0.6rem;
+                        background-color: #e8e8f8;
+                        border-radius: 10px;
+
+                        .icon {
+                            color: orange;
+                        }
+                    }
+                }
+
+                .btn {
+                    padding: 0.6rem;
+                    background-color: orange;
+                    color: #fff;
+                    font-weight: 700;
+                    align-items: center;
+                    margin: auto;
+                    justify-content: center;
+                    font-size: 16px;
+                    width: 100%;
+                    gap: 0.5rem;
+                    transition: .3s ease;
+
+                    .icon {
+                        font-size: 16px;
+                        transition: .3s ease;
+                        color: #fff;
+                        transform: translateY(5px);
+                    }
+                }
+
+                .forgot-password {
+                    font-size: 13px;
+                    color: black;
+                    opacity: .7;
+                    text-align: center;
+
+                    a {
+                        padding-left: .2rem;
+                        text-decoration: underline;
+                        cursor: pointer;
+                        opacity: 1;
+                    }
+                }
+            }
+        }
+    }
+}
