@@ -105,9 +105,6 @@ const HikeForm = () => {
         <>
             <div className='hike'>
                 <div className="hike-letter flex">
-                    <div className="video">
-                        <img src={hikegif} alt="video" className='gif' />
-                    </div>
                     <div className="form">
                         {/* <Link to='/home'> <button className='back'> <IoArrowBackCircleOutline /></button></Link> */}
                         <form>
