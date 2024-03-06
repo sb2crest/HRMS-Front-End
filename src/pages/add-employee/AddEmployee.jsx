@@ -1,9 +1,7 @@
 import React, { useState } from 'react';
 import './addemployee.scss';
-import img from '../../images/new-employeee.jpg';
 import axios from 'axios';
-import { IoArrowBackCircleOutline } from "react-icons/io5";
-import { Link } from 'react-router-dom';
+import SideBar from '../../components/sidebar/SideBar';
 
 const AddEmployee = () => {
     const [name, setName] = useState("");
@@ -36,119 +34,116 @@ const AddEmployee = () => {
         catch (error) {
             console.log("error in saving employee details:" + error);
         }
-
     }
 
     return (
-        <div className='add-employee'>
-            <div class="row">
-                <div className="back-btn">
-                    <Link to='/home'>
-                        <button class="btn btn-lg text-center"><span><IoArrowBackCircleOutline className='icon' /></span></button>
-                    </Link>
-                </div>
+        <div style={{ display: "flex" }}>
+            <div className="sidebar">
+                <SideBar />
             </div>
-            <div className="employee flex">
-                <div className="form">
-                    <form>
-                        <div className="field-container" style={{ display: "flex" }}>
-                            <div className="input-container">
-                                <input
-                                    type='text'
-                                    className='input'
-                                    value={name}
-                                    onChange={(e) => setName(e.target.value)}
-                                />
-                                <label className='placeholder'>Employee Name</label>
+            <div className='add-employee'>
+                <div className="employee flex">
+                    <div className="form">
+                        <form>
+                            <div className="field-container" style={{ display: "flex" }}>
+                                <div className="input-container">
+                                    <input
+                                        type='text'
+                                        className='input'
+                                        value={name}
+                                        onChange={(e) => setName(e.target.value)}
+                                    />
+                                    <label className='placeholder'>Employee Name</label>
+                                </div>
+                                <div className="input-container">
+                                    <input
+                                        type='text'
+                                        className='input'
+                                        value={designation}
+                                        onChange={(e) => setDesignation(e.target.value)}
+                                    />
+                                    <label className='placeholder'>Designation</label>
+                                </div>
                             </div>
-                            <div className="input-container">
-                                <input
-                                    type='text'
-                                    className='input'
-                                    value={designation}
-                                    onChange={(e) => setDesignation(e.target.value)}
-                                />
-                                <label className='placeholder'>Designation</label>
+                            <div className="field-container" style={{ display: "flex" }}>
+                                <div className="input-container">
+                                    <input
+                                        type='text'
+                                        className='input'
+                                        style={{ width: "400px" }}
+                                        value={email}
+                                        onChange={(e) => setEmailID(e.target.value)}
+                                    />
+                                    <label className='placeholder'>Email ID</label>
+                                </div>
                             </div>
-                        </div>
-                        <div className="field-container" style={{ display: "flex" }}>
-                            <div className="input-container">
-                                <input
-                                    type='text'
-                                    className='input'
-                                    style={{ width: "400px" }}
-                                    value={email}
-                                    onChange={(e) => setEmailID(e.target.value)}
-                                />
-                                <label className='placeholder'>Email ID</label>
+                            <div className="field-container" style={{ display: "flex" }}>
+                                <div className="input-container">
+                                    <input
+                                        type='text'
+                                        className='input'
+                                        value={location}
+                                        onChange={(e) => setLocation(e.target.value)}
+                                    />
+                                    <label className='placeholder'>Location</label>
+                                </div>
+                                <div className="input-container">
+                                    <input
+                                        type='text'
+                                        className='input'
+                                        value={bank}
+                                        onChange={(e) => setBank(e.target.value)}
+                                    />
+                                    <label className='placeholder'>Bank Name</label>
+                                </div>
                             </div>
-                        </div>
-                        <div className="field-container" style={{ display: "flex" }}>
-                            <div className="input-container">
-                                <input
-                                    type='text'
-                                    className='input'
-                                    value={location}
-                                    onChange={(e) => setLocation(e.target.value)}
-                                />
-                                <label className='placeholder'>Location</label>
+                            <div className="field-container" style={{ display: "flex" }}>
+                                <div className="input-container">
+                                    <input
+                                        type='text'
+                                        className='input'
+                                        value={department}
+                                        onChange={(e) => setDepartment(e.target.value)}
+                                    />
+                                    <label className='placeholder'>Department</label>
+                                </div>
+                                <div className="input-container">
+                                    <input
+                                        type='text'
+                                        className='input'
+                                        value={account}
+                                        onChange={(e) => setAccount(e.target.value)}
+                                    />
+                                    <label className='placeholder'>Account Number</label>
+                                </div>
                             </div>
-                            <div className="input-container">
-                                <input
-                                    type='text'
-                                    className='input'
-                                    value={bank}
-                                    onChange={(e) => setBank(e.target.value)}
-                                />
-                                <label className='placeholder'>Bank Name</label>
+                            <div className="field-container" style={{ display: "flex" }}>
+                                <div className="input-container">
+                                    <input
+                                        type='text'
+                                        className='input'
+                                        value={doj}
+                                        onChange={(e) => setDOJ(e.target.value)}
+                                    />
+                                    <label className='placeholder'>DOJ</label>
+                                </div>
+                                <div className="input-container">
+                                    <input
+                                        type='text'
+                                        className='input'
+                                        value={grossSalary}
+                                        onChange={(e) => setGrossSalary(e.target.value)}
+                                    />
+                                    <label className='placeholder'>Gross Salary</label>
+                                </div>
                             </div>
-                        </div>
-                        <div className="field-container" style={{ display: "flex" }}>
-                            <div className="input-container">
-                                <input
-                                    type='text'
-                                    className='input'
-                                    value={department}
-                                    onChange={(e) => setDepartment(e.target.value)}
-                                />
-                                <label className='placeholder'>Department</label>
+                            <div className="button">
+                                <button className='save-button' onClick={handleSave}>
+                                    Save
+                                </button>
                             </div>
-                            <div className="input-container">
-                                <input
-                                    type='text'
-                                    className='input'
-                                    value={account}
-                                    onChange={(e) => setAccount(e.target.value)}
-                                />
-                                <label className='placeholder'>Account Number</label>
-                            </div>
-                        </div>
-                        <div className="field-container" style={{ display: "flex" }}>
-                            <div className="input-container">
-                                <input
-                                    type='text'
-                                    className='input'
-                                    value={doj}
-                                    onChange={(e) => setDOJ(e.target.value)}
-                                />
-                                <label className='placeholder'>DOJ</label>
-                            </div>
-                            <div className="input-container">
-                                <input
-                                    type='text'
-                                    className='input'
-                                    value={grossSalary}
-                                    onChange={(e) => setGrossSalary(e.target.value)}
-                                />
-                                <label className='placeholder'>Gross Salary</label>
-                            </div>
-                        </div>
-                        <div className="button">
-                            <button className='save-button' onClick={handleSave}>
-                                Save
-                            </button>
-                        </div>
-                    </form>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>

@@ -2,8 +2,7 @@ import React, { useState } from 'react';
 import './hikeform.scss';
 import axios from 'axios';
 import Snackbar from "@mui/material/Snackbar";
-import { IoArrowBackCircleOutline } from "react-icons/io5";
-import { Link } from 'react-router-dom';
+import SideBar from '../../components/sidebar/SideBar';
 
 const HikeForm = () => {
     const [employee, setEmployee] = useState("");
@@ -108,202 +107,200 @@ const HikeForm = () => {
 
     return (
         <>
-            <div className='hike'>
-                <div class="row">
-                    <div className="back-btn">
-                        <Link to='/home'>
-                            <button class="btn btn-lg text-center"><span><IoArrowBackCircleOutline className='icon' /></span></button>
-                        </Link>
-                    </div>
+            <div style={{ display: "flex" }}>
+                <div className="sidebar">
+                    <SideBar />
                 </div>
-                <div className="hike-letter flex">
-                    <div className="form">
-                        <form>
-                            <div className="field-container" style={{ display: "flex" }}>
-                                <div className="input-container">
-                                    <input
-                                        type='text'
-                                        className='input'
-                                        value={employeeName}
-                                        onChange={(e) => setEmployeeName(e.target.value)}
-                                    />
-                                    <label className='placeholder'>Employee Name</label>
-                                </div>
-                                <div className="input-container">
-                                    <input
-                                        type='text'
-                                        className='input'
-                                        value={employee}
-                                        onChange={handleGetDesignation}
-                                    />
-                                    <label className='placeholder'>Employee ID</label>
-                                </div>
-                            </div>
-                            <div className="field-container" style={{ display: "flex" }}>
-                                <div className="input-container">
-                                    <input
-                                        type='text'
-                                        className='input'
-                                        placeholder={presentDesignation}
-                                        readOnly
-                                    />
-                                    <label className='placeholder'>Present Designation</label>
-                                </div>
-                                <div className="input-container">
-                                    <input
-                                        type='text'
-                                        className='input'
-                                        value={percentage}
-                                        onChange={(e) => setPercentage(e.target.value)}
-                                    />
-                                    <label className='placeholder'>Hike Percentage</label>
-                                </div>
-                            </div>
-                            <div className="field-container" style={{ display: "flex" }}>
-                                <div className="input-container">
-                                    <input
-                                        type='text'
-                                        className='input'
-                                        value={approvedBy}
-                                        onChange={(e) => setApprovedBy(e.target.value)}
-                                    />
-                                    <label className='placeholder'>Approved By</label>
-                                </div>
-                                <div className="input-container">
-                                    <input
-                                        type='text'
-                                        className='input'
-                                        value={approvedDate}
-                                        onChange={(e) => setApprovedDate(e.target.value)}
-                                    />
-                                    <label className='placeholder'>Approved Date</label>
-                                </div>
-                            </div>
-                            <div className="field-container" style={{ display: "flex" }}>
-                                <div className="input-container">
-                                    <input
-                                        type='text'
-                                        className='input'
-                                        value={currentDate}
-                                        onChange={(e) => setCurrentDate(e.target.value)}
-                                    />
-                                    <label className='placeholder'>Issued Date</label>
-                                </div>
-                                <div className="input-container">
-                                    <input
-                                        type='text'
-                                        className='input'
-                                        value={effectiveDay}
-                                        onChange={(e) => setEffectiveDay(e.target.value)}
-                                    />
-                                    <label className='placeholder'>Effective Date</label>
-                                </div>
-                            </div>
-                            <div className="field-container" style={{ display: "flex" }}>
-                                <div className="input-container" >
-                                    <input
-                                        type='text'
-                                        className='input'
-                                        value={reason}
-                                        onChange={(e) => setReason(e.target.value)}
-                                        style={{ width: "425px", height: "80px" }}
-                                    />
-                                    <label className='placeholder'>Comments</label>
-                                </div>
-                            </div>
-                            {promotionStatus ?
-                                (
-                                    <div className="promotion-designation">
-                                        <p className='p-text'>Please select the Designation for an Employee </p>
-                                        <select id="myDropdown" onChange={updateTextField} className='select'>
-                                            <option value='None' className='option'>
-                                                None
-                                            </option>
-                                            <option value="Associate Engineer" className='option'>
-                                                Associate Engineer
-                                            </option>
-                                            <option value="Software Engineer" className='option'>
-                                                Software Engineer
-                                            </option>
-                                            <option value="Senior Software Engineer" className='option'>
-                                                Senior Software Engineer
-                                            </option>
-                                            <option value="Lead Engineer" className='option'>
-                                                Lead Engineer
-                                            </option>
-                                            <option value="Junior Architect" className='option'>
-                                                Junior Architect
-                                            </option>
-                                            <option value="Senior Architect" className='option'>
-                                                Senior Architect
-                                            </option>
-                                            <option value="Engineering Manager" className='option'>
-                                                Engineering Manager
-                                            </option>
-                                            <option value="Project Manager" className='option'>
-                                                Project Manager
-                                            </option>
-                                            <option value="Delivery Manager" className='option'>
-                                                Delivery Manager
-                                            </option>
-                                            <option value="Associate Vice President" className='option'>
-                                                Associate Vice President
-                                            </option>
-                                            <option value="Vice President" className='option'>
-                                                Vice President
-                                            </option>
-                                            <option value="Chief Technology Officer" className='option'>
-                                                Chief Technology Officer
-                                            </option>
-                                            <option value="Chief Executive Officer" className='option'>
-                                                Chief Executive Officer
-                                            </option>
-                                        </select>
+                <div className='hike'>
+                    <div className="hike-letter flex">
+                        <div className="form">
+                            <form>
+                                <div className="field-container" style={{ display: "flex" }}>
+                                    <div className="input-container">
+                                        <input
+                                            type='text'
+                                            className='input'
+                                            value={employeeName}
+                                            onChange={(e) => setEmployeeName(e.target.value)}
+                                        />
+                                        <label className='placeholder'>Employee Name</label>
                                     </div>
-
-                                )
-                                :
-                                (
-                                    <div className="field-container" style={{ display: "flex" }}>
-                                        <div className="input-container" >
-                                            <input
-                                                type='checkbox'
-                                                className='checkbox'
-                                                onChange={handlePromotionStatus}
-                                            />
-                                            <span className='label-for-promotion'>Include Promotion for an Employee</span>
+                                    <div className="input-container">
+                                        <input
+                                            type='text'
+                                            className='input'
+                                            value={employee}
+                                            onChange={handleGetDesignation}
+                                        />
+                                        <label className='placeholder'>Employee ID</label>
+                                    </div>
+                                </div>
+                                <div className="field-container" style={{ display: "flex" }}>
+                                    <div className="input-container">
+                                        <input
+                                            type='text'
+                                            className='input'
+                                            placeholder={presentDesignation}
+                                            readOnly
+                                        />
+                                        <label className='placeholder'>Present Designation</label>
+                                    </div>
+                                    <div className="input-container">
+                                        <input
+                                            type='text'
+                                            className='input'
+                                            value={percentage}
+                                            onChange={(e) => setPercentage(e.target.value)}
+                                        />
+                                        <label className='placeholder'>Hike Percentage</label>
+                                    </div>
+                                </div>
+                                <div className="field-container" style={{ display: "flex" }}>
+                                    <div className="input-container">
+                                        <input
+                                            type='text'
+                                            className='input'
+                                            value={approvedBy}
+                                            onChange={(e) => setApprovedBy(e.target.value)}
+                                        />
+                                        <label className='placeholder'>Approved By</label>
+                                    </div>
+                                    <div className="input-container">
+                                        <input
+                                            type='text'
+                                            className='input'
+                                            value={approvedDate}
+                                            onChange={(e) => setApprovedDate(e.target.value)}
+                                        />
+                                        <label className='placeholder'>Approved Date</label>
+                                    </div>
+                                </div>
+                                <div className="field-container" style={{ display: "flex" }}>
+                                    <div className="input-container">
+                                        <input
+                                            type='text'
+                                            className='input'
+                                            value={currentDate}
+                                            onChange={(e) => setCurrentDate(e.target.value)}
+                                        />
+                                        <label className='placeholder'>Issued Date</label>
+                                    </div>
+                                    <div className="input-container">
+                                        <input
+                                            type='text'
+                                            className='input'
+                                            value={effectiveDay}
+                                            onChange={(e) => setEffectiveDay(e.target.value)}
+                                        />
+                                        <label className='placeholder'>Effective Date</label>
+                                    </div>
+                                </div>
+                                <div className="field-container" style={{ display: "flex" }}>
+                                    <div className="input-container" >
+                                        <input
+                                            type='text'
+                                            className='input'
+                                            value={reason}
+                                            onChange={(e) => setReason(e.target.value)}
+                                            style={{ width: "425px", height: "80px" }}
+                                        />
+                                        <label className='placeholder'>Comments</label>
+                                    </div>
+                                </div>
+                                {promotionStatus ?
+                                    (
+                                        <div className="promotion-designation">
+                                            <p className='p-text'>Please select the Designation for an Employee </p>
+                                            <select id="myDropdown" onChange={updateTextField} className='select'>
+                                                <option value='None' className='option'>
+                                                    None
+                                                </option>
+                                                <option value="Associate Engineer" className='option'>
+                                                    Associate Engineer
+                                                </option>
+                                                <option value="Software Engineer" className='option'>
+                                                    Software Engineer
+                                                </option>
+                                                <option value="Senior Software Engineer" className='option'>
+                                                    Senior Software Engineer
+                                                </option>
+                                                <option value="Lead Engineer" className='option'>
+                                                    Lead Engineer
+                                                </option>
+                                                <option value="Junior Architect" className='option'>
+                                                    Junior Architect
+                                                </option>
+                                                <option value="Senior Architect" className='option'>
+                                                    Senior Architect
+                                                </option>
+                                                <option value="Engineering Manager" className='option'>
+                                                    Engineering Manager
+                                                </option>
+                                                <option value="Project Manager" className='option'>
+                                                    Project Manager
+                                                </option>
+                                                <option value="Delivery Manager" className='option'>
+                                                    Delivery Manager
+                                                </option>
+                                                <option value="Associate Vice President" className='option'>
+                                                    Associate Vice President
+                                                </option>
+                                                <option value="Vice President" className='option'>
+                                                    Vice President
+                                                </option>
+                                                <option value="Chief Technology Officer" className='option'>
+                                                    Chief Technology Officer
+                                                </option>
+                                                <option value="Chief Executive Officer" className='option'>
+                                                    Chief Executive Officer
+                                                </option>
+                                            </select>
                                         </div>
-                                    </div>
-                                )
-                            }
-                            <div className="button">
-                                <button
-                                    className='back-button'
-                                    onClick={handleSendEmail}
-                                >
-                                    Send Email
-                                </button>
-                                <Snackbar
-                                    open={emailsent}
-                                    // autoHideDuration={6000}
-                                    onClose={handleSnackbarClose}
-                                    message="Email Sent Successfully"
-                                    SnackbarContentProps={{
-                                        style: { backgroundColor: 'green' }
-                                    }}
-                                    style={{ minWidth: '200px' }}
-                                    anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
-                                />
-                                <button
-                                    className='save-button'
-                                    onClick={handlePreview}
-                                >
-                                    Preview PDF
-                                </button>
-                            </div>
-                        </form>
-                    </div>
 
+                                    )
+                                    :
+                                    (
+                                        <div className="field-container" style={{ display: "flex" }}>
+                                            <div className="input-container" >
+                                                <input
+                                                    type='checkbox'
+                                                    className='checkbox'
+                                                    onChange={handlePromotionStatus}
+                                                />
+                                                <span className='label-for-promotion'>Include Promotion for an Employee</span>
+                                            </div>
+                                        </div>
+                                    )
+                                }
+                                <div className="button">
+                                    <button
+                                        className='back-button'
+                                        onClick={handleSendEmail}
+                                    >
+                                        Send Email
+                                    </button>
+                                    <Snackbar
+                                        open={emailsent}
+                                        // autoHideDuration={6000}
+                                        onClose={handleSnackbarClose}
+                                        message="Email Sent Successfully"
+                                        SnackbarContentProps={{
+                                            style: { backgroundColor: 'green' }
+                                        }}
+                                        style={{ minWidth: '200px' }}
+                                        anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
+                                    />
+                                    <button
+                                        className='save-button'
+                                        onClick={handlePreview}
+                                    >
+                                        Preview PDF
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+
+                    </div>
                 </div>
             </div>
         </>

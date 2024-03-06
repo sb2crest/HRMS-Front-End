@@ -35,10 +35,7 @@ video {
 
 /* page style*/
 .offer-letter {
-    height: 100vh;
     width: 100%;
-    margin: auto;
-    border-radius: 10px;
     overflow: hidden;
     display: flex;
     align-items: center;
@@ -47,32 +44,6 @@ video {
     box-sizing: border-box;
     background-color: #ECF0F4;
 
-
-    /* back button */
-    .row {
-        position: absolute;
-        top: 0;
-        left: 0;
-        margin-left: -40px;
-    }
-
-    .back-btn button {
-        margin-left: 50%;
-        margin-top: 5%;
-        border-radius: 50% !important;
-        color: black;
-        border: none !important;
-
-        .icon {
-            font-size: 40px;
-            color: #7da5c9;
-        }
-    }
-
-    .back-btn button:hover {
-        color: black;
-    }
-
     /* form container */
     .offer-container {
         height: 70vh;
@@ -80,7 +51,6 @@ video {
         -webkit-box-shadow: 2px 4px 10px 1px rgba(0, 0, 0, 0.47);
         box-shadow: 2px 4px 10px 1px rgba(201, 201, 201, 0.47);
         background-color: #fff;
-
 
         .video {
             position: relative;
