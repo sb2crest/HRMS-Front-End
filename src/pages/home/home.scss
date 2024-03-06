@@ -4,7 +4,8 @@
 
 .home {
     display: flex;
-    
+    background-color: #ECF0F4;
+
     .sidebar {
         position: fixed;
         top: 0;
@@ -30,6 +31,21 @@
             // display: flex;
             padding: 25px;
             // gap: 20px;
+        }
+
+        .leave-request-table {
+            -webkit-box-shadow: 2px 4px 10px 1px rgba(0, 0, 0, 0.47);
+            box-shadow: 2px 4px 10px 1px rgba(201, 201, 201, 0.47);
+            padding: 20px;
+            margin: 20px;
+            background-color: #fff;
+
+            .leave-container{
+                font-weight: 600;
+                color: gray;
+                margin-bottom: 15px;
+                font-size: 17px;
+            }
         }
     }
 }

@@ -1,0 +1,29 @@
+.table {
+    .table-cell {
+        font-size: 15px;
+        color: rgb(152, 149, 149);
+        font-weight: 500;
+    }
+
+    .table-cell-value {
+        font-size: 13.5px;
+        font-weight: 200;
+        color: black;
+    }
+
+    .status-approve {
+        color: darkgreen;
+        background-color: rgba(4, 123, 4, 0.151);
+        border-radius: 5px;
+        padding: 5px;
+        font-weight: 600;
+    }
+
+    .status-leave {
+        color: rgb(246, 31, 31);
+        background-color: rgb(252, 182, 182);
+        padding: 5px;
+        font-weight: 600;
+        border-radius: 5px;
+    }
+}
