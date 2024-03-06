@@ -9,9 +9,8 @@ import AttendenceWidget from '../../components/widgets/AttendenceWidget';
 import axios from 'axios';
 import Featured from '../../components/graphs_and_charts/feature/Featured';
 import Chart from '../../components/graphs_and_charts/chart/Chart';
-import UserList from '../user-list/UserList';
-import User from '../new-user/User';
 import Attendance from '../../components/attendance/Attendance';
+import Table from '../../leave-request/Table';
 
 const Home = () => {
   const [averageSalary, setAverageSalary] = useState(null);
@@ -54,6 +53,12 @@ const Home = () => {
         </div>
         <div className="charts">
           <Featured />
+        </div>
+        <div className="leave-request-table">
+          <div className="leave-container">
+            Leave Requests
+          </div>
+          <Table />
         </div>
       </div>
     </div>
