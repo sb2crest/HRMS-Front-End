@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import './payroll.scss';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
+import { IoArrowBackCircleOutline } from "react-icons/io5";
 
 const PayrollForm = () => {
     /* state for fields */
@@ -137,6 +138,13 @@ const PayrollForm = () => {
 
     return (
         <div className='payroll'>
+            <div class="row">
+                <div className="back-btn">
+                    <Link to='/home'>
+                        <button class="btn btn-lg text-center"><span><IoArrowBackCircleOutline className='icon' /></span></button>
+                    </Link>
+                </div>
+            </div>
             <div className="container">
                 <div className="form">
                     <form>

@@ -1,6 +1,3 @@
-// body{
-//     background-color: rgb(243, 250, 252);
-// }
 
 .home {
     display: flex;
@@ -28,9 +25,7 @@
         }
 
         .featured {
-            // display: flex;
             padding: 25px;
-            // gap: 20px;
         }
 
         .leave-request-table {
@@ -44,7 +39,7 @@
                 font-weight: 600;
                 color: gray;
                 margin-bottom: 15px;
-                font-size: 17px;
+                font-size: 18px;
             }
         }
     }
