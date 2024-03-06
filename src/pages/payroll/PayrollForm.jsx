@@ -104,16 +104,15 @@ const PayrollForm = () => {
         setAmountInWords(NumberToWords(totalAmount));
     }, [totalAmount]);
 
-    /* Adding Payroll API call */
-    const [error, setError] = useState('');
-
+    /* API call for Saving and Sending Payroll PDF */
     const handleSave = async (e) => {
         e.preventDefault();
         try {
             console.log("employeeID:" + employeeID);
             const response = await axios.post(`http://localhost:8081/admin/add-payroll`, {
                 payPeriod: payperiod,
-                payDate: incomeTax,
+                payDate: payDate,
+                incomeTax: incomeTax,
                 employeeId: employeeID,
                 basic: basicSalary,
                 houseRentAllowance: rentAllowance,
@@ -129,10 +128,41 @@ const PayrollForm = () => {
             const responseData = response.data;
             console.log("response:", responseData);
         } catch (error) {
-            setError('Failed to Add Payroll');
             console.log("error in adding payroll:", error);
         }
     };
+
+    {/* API Call for Preview of Payslip */ }
+    const handlePreview = async (e) => {
+        e.preventDefault();
+        try {
+            const response = await axios.post('http://localhost:8081/admin/preview-payslip', {
+                payPeriod: payperiod,
+                payDate: incomeTax,
+                employeeId: employeeID,
+                basic: basicSalary,
+                houseRentAllowance: rentAllowance,
+                medicalAllowance: medicalAllowance,
+                otherAllowance: otherAllowance,
+                grossEarnings: grossEarning,
+                providentFund: providentFund,
+                professionalTax: professionalTax,
+                leaveDeduction: leaveDeduction,
+                totalDeductions: totalDeduction,
+                totalNetPayable: totalAmount,
+            },
+                {
+                    responseType: 'blob'
+                });
+            const data = response.data;
+            const blob = new Blob([data], { type: 'application/pdf' });
+            const url = URL.createObjectURL(blob);
+            window.open(url, '_blank');
+        }
+        catch (error) {
+            console.log("Error in preview of payslip:", error);
+        }
+    }
 
     return (
         <div style={{ display: "flex" }}>
@@ -192,8 +222,8 @@ const PayrollForm = () => {
                                     <input
                                         type='text'
                                         className='input'
-                                        value={payperiod}
-                                        onChange={(e) => setPayPeriod(e.target.value)}
+                                        value={payDate}
+                                        onChange={(e) => setPayDate(e.target.value)}
                                     />
                                     <label className='placeholder'>Pay Date</label>
                                 </div>
@@ -315,7 +345,7 @@ const PayrollForm = () => {
                                 </div>
                             </div>
                             <div className="button">
-                                <button className='back-button'>Preview PDF</button>
+                                <button className='back-button' onClick={handlePreview}>Preview PDF</button>
                                 <button className='save-button' onClick={handleSave}>Send PDF</button>
                             </div>
                         </form>

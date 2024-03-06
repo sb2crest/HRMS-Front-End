@@ -6,9 +6,7 @@ import PersonOutlineIcon from '@mui/icons-material/PersonOutline';
 import QueryStatsIcon from '@mui/icons-material/QueryStats';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import EqualizerIcon from '@mui/icons-material/Equalizer';
-import AccountBoxIcon from '@mui/icons-material/AccountBox';
 import LogoutIcon from '@mui/icons-material/Logout';
-import logo from '../../images/login-admin-img.jpg';
 import { MdOutlinePersonAddAlt } from "react-icons/md";
 import { SlEnvolopeLetter } from "react-icons/sl";
 import { Link } from 'react-router-dom';
@@ -22,7 +20,7 @@ const SideBar = () => {
                     <p className="title">MAIN</p>
                     <li>
                         <DashboardIcon className='icon' />
-                        <Link style={{ textDecoration: "none" }}>
+                        <Link to='/home' style={{ textDecoration: "none" }}>
                             <span>Dashboard</span>
                         </Link>
                     </li>
@@ -72,10 +70,6 @@ const SideBar = () => {
                         </li>
                     </Link>
                     <p className="title">ADMIN</p>
-                    {/* <li>
-                        <AccountBoxIcon className='icon' />
-                        <span>Profile</span>
-                    </li> */}
                     <Link to='/' style={{ textDecoration: "none" }}>
                         <li>
                             <LogoutIcon className='icon' />
