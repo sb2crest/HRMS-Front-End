@@ -3,6 +3,8 @@ import './offerletter.scss';
 import video from '../../images/offer-letter-gif.gif';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
+import SideBar from '../../components/sidebar/SideBar';
+import { IoArrowBackCircleOutline } from "react-icons/io5";
 
 const OfferLetter = () => {
     /* Form State */
@@ -13,6 +15,7 @@ const OfferLetter = () => {
     const [basicSalary, setBasicSalary] = useState('');
     const [designation, setDesignation] = useState('');
     const [department, setDepartment] = useState('');
+    const [currentDate, setCurrentDate] = useState('');
 
     /* API Integration for PDF Preview */
     const handleSave = async (e) => {
@@ -25,7 +28,8 @@ const OfferLetter = () => {
                 designation: designation,
                 department: department,
                 joiningDate: doj.toString(),
-                ctc: basicSalary
+                ctc: basicSalary,
+                issuedDate: currentDate
             }, {
                 responseType: 'blob' // This ensures that the response is treated as a binary blob
             });
@@ -56,6 +60,7 @@ const OfferLetter = () => {
     const handleSendPDF = async (e) => {
         e.preventDefault();
         try {
+            console.log("Current Date:" + currentDate);
             const response = await axios.post("http://localhost:8081/offer-letter/send", {
                 fullName: employee,
                 email: email,
@@ -63,7 +68,8 @@ const OfferLetter = () => {
                 designation: designation,
                 department: department,
                 joiningDate: doj,
-                ctc: basicSalary
+                ctc: basicSalary,
+                issuedDate: currentDate
             });
             const responseData = response.data;
             console.log(responseData);
@@ -76,10 +82,15 @@ const OfferLetter = () => {
     return (
         <>
             <div className='offer-letter'>
+                <div class="row">
+                    <div className="back-btn">
+                        <Link to='/home'>
+                            <button class="btn btn-lg text-center"><span><IoArrowBackCircleOutline className='icon' /></span></button>
+                        </Link>
+                    </div>
+                </div>
                 <div className="offer-container flex">
-                    {/* <div className="video">
-                        <img src={video} className='gif' />
-                    </div> */}
+
                     <div className="form">
                         <form>
                             <div className="field-container" style={{ display: "flex" }}>
@@ -109,9 +120,17 @@ const OfferLetter = () => {
                                         className='input'
                                         value={email}
                                         onChange={(e) => setEmail(e.target.value)}
-                                        style={{ width: "400px" }}
                                     />
                                     <label className='placeholder'>Email ID</label>
+                                </div>
+                                <div className="input-container">
+                                    <input
+                                        type='text'
+                                        className='input'
+                                        value={currentDate}
+                                        onChange={(e) => setCurrentDate(e.target.value)}
+                                    />
+                                    <label className='placeholder'>Issued Date</label>
                                 </div>
                             </div>
                             <div className="field-container" style={{ display: "flex" }}>

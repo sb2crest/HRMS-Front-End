@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import './hikeform.scss';
 import axios from 'axios';
 import Snackbar from "@mui/material/Snackbar";
+import { IoArrowBackCircleOutline } from "react-icons/io5";
+import { Link } from 'react-router-dom';
 
 const HikeForm = () => {
     const [employee, setEmployee] = useState("");
@@ -14,6 +16,8 @@ const HikeForm = () => {
     const [emailsent, setEmailSent] = useState(false);
     const [presentDesignation, setPresentDesignation] = useState("");
     const [newPosition, setNewPosition] = useState("");
+    const [currentDate, setCurrentDate] = useState("");
+    const [approvedDate, setApprovedDate] = useState("");
 
     const handlePromotionStatus = () => {
         setPromotionStatus(true);
@@ -47,7 +51,9 @@ const HikeForm = () => {
                 reason: reason,
                 approvedBy: approvedBy,
                 effectiveDate: effectiveDay,
-                newPosition: newPosition
+                newPosition: newPosition,
+                issuedDate: currentDate,
+                approvedDate: approvedDate
             },
                 {
                     responseType: 'blob'
@@ -71,7 +77,9 @@ const HikeForm = () => {
                 percentage: percentage,
                 reason: reason,
                 approvedBy: approvedBy,
-                effectiveDate: effectiveDay
+                effectiveDate: effectiveDay,
+                issuedDate: currentDate,
+                approvedDate: approvedDate
             });
             const data = response.data;
             console.log(data);
@@ -101,6 +109,13 @@ const HikeForm = () => {
     return (
         <>
             <div className='hike'>
+                <div class="row">
+                    <div className="back-btn">
+                        <Link to='/home'>
+                            <button class="btn btn-lg text-center"><span><IoArrowBackCircleOutline className='icon' /></span></button>
+                        </Link>
+                    </div>
+                </div>
                 <div className="hike-letter flex">
                     <div className="form">
                         <form>
@@ -112,7 +127,7 @@ const HikeForm = () => {
                                         value={employeeName}
                                         onChange={(e) => setEmployeeName(e.target.value)}
                                     />
-                                    <label className='placeholder'>Employee</label>
+                                    <label className='placeholder'>Employee Name</label>
                                 </div>
                                 <div className="input-container">
                                     <input
@@ -153,6 +168,26 @@ const HikeForm = () => {
                                         onChange={(e) => setApprovedBy(e.target.value)}
                                     />
                                     <label className='placeholder'>Approved By</label>
+                                </div>
+                                <div className="input-container">
+                                    <input
+                                        type='text'
+                                        className='input'
+                                        value={approvedDate}
+                                        onChange={(e) => setApprovedDate(e.target.value)}
+                                    />
+                                    <label className='placeholder'>Approved Date</label>
+                                </div>
+                            </div>
+                            <div className="field-container" style={{ display: "flex" }}>
+                                <div className="input-container">
+                                    <input
+                                        type='text'
+                                        className='input'
+                                        value={currentDate}
+                                        onChange={(e) => setCurrentDate(e.target.value)}
+                                    />
+                                    <label className='placeholder'>Issued Date</label>
                                 </div>
                                 <div className="input-container">
                                     <input

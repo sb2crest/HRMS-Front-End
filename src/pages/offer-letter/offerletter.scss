@@ -43,16 +43,40 @@ video {
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 7px 50px rgb(214, 223, 213);
     font-family: "Poppins", sans-serif;
     box-sizing: border-box;
-    // background-image: url('../../images/background-01.avif');
     background-color: #ECF0F4;
 
+
+    /* back button */
+    .row {
+        position: absolute;
+        top: 0;
+        left: 0;
+        margin-left: -40px;
+    }
+
+    .back-btn button {
+        margin-left: 50%;
+        margin-top: 5%;
+        border-radius: 50% !important;
+        color: black;
+        border: none !important;
+
+        .icon {
+            font-size: 40px;
+            color: #7da5c9;
+        }
+    }
+
+    .back-btn button:hover {
+        color: black;
+    }
+
+    /* form container */
     .offer-container {
-        height: 65vh;
-        // width: 85%;
-        justify-content: space-between;
+        height: 70vh;
+        justify-content: center;
         -webkit-box-shadow: 2px 4px 10px 1px rgba(0, 0, 0, 0.47);
         box-shadow: 2px 4px 10px 1px rgba(201, 201, 201, 0.47);
         background-color: #fff;
