@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import './addemployee.scss';
 import img from '../../images/new-employeee.jpg';
 import axios from 'axios';
+import { IoArrowBackCircleOutline } from "react-icons/io5";
+import { Link } from 'react-router-dom';
 
 const AddEmployee = () => {
     const [name, setName] = useState("");
@@ -39,6 +41,13 @@ const AddEmployee = () => {
 
     return (
         <div className='add-employee'>
+            <div class="row">
+                <div className="back-btn">
+                    <Link to='/home'>
+                        <button class="btn btn-lg text-center"><span><IoArrowBackCircleOutline className='icon' /></span></button>
+                    </Link>
+                </div>
+            </div>
             <div className="employee flex">
                 <div className="form">
                     <form>
