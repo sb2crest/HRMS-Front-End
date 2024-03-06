@@ -81,113 +81,110 @@ const OfferLetter = () => {
 
     return (
         <>
-            <div className='offer-letter'>
-                <div class="row">
-                    <div className="back-btn">
-                        <Link to='/home'>
-                            <button class="btn btn-lg text-center"><span><IoArrowBackCircleOutline className='icon' /></span></button>
-                        </Link>
-                    </div>
+            <div style={{ display: "flex" }}>
+                <div className="sidebar">
+                    <SideBar />
                 </div>
-                <div className="offer-container flex">
-
-                    <div className="form">
-                        <form>
-                            <div className="field-container" style={{ display: "flex" }}>
-                                <div className="input-container">
-                                    <input
-                                        type='text'
-                                        className='input'
-                                        value={employee}
-                                        onChange={(e) => setEmployee(e.target.value)}
-                                    />
-                                    <label className='placeholder'>Employee</label>
+                <div className='offer-letter'>
+                    <div className="offer-container flex">
+                        <div className="form">
+                            <form>
+                                <div className="field-container" style={{ display: "flex" }}>
+                                    <div className="input-container">
+                                        <input
+                                            type='text'
+                                            className='input'
+                                            value={employee}
+                                            onChange={(e) => setEmployee(e.target.value)}
+                                        />
+                                        <label className='placeholder'>Employee</label>
+                                    </div>
+                                    <div className="input-container">
+                                        <input
+                                            type='text'
+                                            className='input'
+                                            value={phoneNumber}
+                                            onChange={(e) => setPhoneNumber(e.target.value)}
+                                        />
+                                        <label className='placeholder'>Phone Number</label>
+                                    </div>
                                 </div>
-                                <div className="input-container">
-                                    <input
-                                        type='text'
-                                        className='input'
-                                        value={phoneNumber}
-                                        onChange={(e) => setPhoneNumber(e.target.value)}
-                                    />
-                                    <label className='placeholder'>Phone Number</label>
+                                <div className="field-container" style={{ display: "flex" }}>
+                                    <div className="input-container">
+                                        <input
+                                            type='text'
+                                            className='input'
+                                            value={email}
+                                            onChange={(e) => setEmail(e.target.value)}
+                                        />
+                                        <label className='placeholder'>Email ID</label>
+                                    </div>
+                                    <div className="input-container">
+                                        <input
+                                            type='text'
+                                            className='input'
+                                            value={currentDate}
+                                            onChange={(e) => setCurrentDate(e.target.value)}
+                                        />
+                                        <label className='placeholder'>Issued Date</label>
+                                    </div>
                                 </div>
-                            </div>
-                            <div className="field-container" style={{ display: "flex" }}>
-                                <div className="input-container">
-                                    <input
-                                        type='text'
-                                        className='input'
-                                        value={email}
-                                        onChange={(e) => setEmail(e.target.value)}
-                                    />
-                                    <label className='placeholder'>Email ID</label>
+                                <div className="field-container" style={{ display: "flex" }}>
+                                    <div className="input-container">
+                                        <input
+                                            type='text'
+                                            className='input'
+                                            value={doj}
+                                            onChange={(e) => setDOJ(e.target.value)}
+                                            style={{ width: "180px" }}
+                                        />
+                                        <label className='placeholder'>Date of Joining</label>
+                                    </div>
+                                    <div className="input-container">
+                                        <input
+                                            type='text'
+                                            className='input'
+                                            value={basicSalary}
+                                            onChange={(e) => setBasicSalary(e.target.value)}
+                                        />
+                                        <label className='placeholder'>CTC</label>
+                                    </div>
                                 </div>
-                                <div className="input-container">
-                                    <input
-                                        type='text'
-                                        className='input'
-                                        value={currentDate}
-                                        onChange={(e) => setCurrentDate(e.target.value)}
-                                    />
-                                    <label className='placeholder'>Issued Date</label>
+                                <div className="field-container" style={{ display: "flex" }}>
+                                    <div className="input-container">
+                                        <input
+                                            type='text'
+                                            className='input'
+                                            value={designation}
+                                            onChange={(e) => setDesignation(e.target.value)}
+                                        />
+                                        <label className='placeholder'>Designation</label>
+                                    </div>
+                                    <div className="input-container">
+                                        <input
+                                            type='text'
+                                            className='input'
+                                            value={department}
+                                            onChange={(e) => setDepartment(e.target.value)}
+                                        />
+                                        <label className='placeholder'>Department</label>
+                                    </div>
                                 </div>
-                            </div>
-                            <div className="field-container" style={{ display: "flex" }}>
-                                <div className="input-container">
-                                    <input
-                                        type='text'
-                                        className='input'
-                                        value={doj}
-                                        onChange={(e) => setDOJ(e.target.value)}
-                                        style={{ width: "180px" }}
-                                    />
-                                    <label className='placeholder'>Date of Joining</label>
+                                <div className="button">
+                                    <button
+                                        className='back-button'
+                                        onClick={handleSendPDF}
+                                    >
+                                        Send Email
+                                    </button>
+                                    <button
+                                        className='save-button'
+                                        onClick={handleSave}>
+                                        Preview PDF
+                                    </button>
                                 </div>
-                                <div className="input-container">
-                                    <input
-                                        type='text'
-                                        className='input'
-                                        value={basicSalary}
-                                        onChange={(e) => setBasicSalary(e.target.value)}
-                                    />
-                                    <label className='placeholder'>CTC</label>
-                                </div>
-                            </div>
-                            <div className="field-container" style={{ display: "flex" }}>
-                                <div className="input-container">
-                                    <input
-                                        type='text'
-                                        className='input'
-                                        value={designation}
-                                        onChange={(e) => setDesignation(e.target.value)}
-                                    />
-                                    <label className='placeholder'>Designation</label>
-                                </div>
-                                <div className="input-container">
-                                    <input
-                                        type='text'
-                                        className='input'
-                                        value={department}
-                                        onChange={(e) => setDepartment(e.target.value)}
-                                    />
-                                    <label className='placeholder'>Department</label>
-                                </div>
-                            </div>
-                            <div className="button">
-                                <button
-                                    className='back-button'
-                                    onClick={handleSendPDF}
-                                >
-                                    Send Email
-                                </button>
-                                <button
-                                    className='save-button'
-                                    onClick={handleSave}>
-                                    Preview PDF
-                                </button>
-                            </div>
-                        </form>
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>

@@ -17,9 +17,6 @@ import { BsGraphUpArrow } from "react-icons/bs";
 const SideBar = () => {
     return (
         <div className='sidebar'>
-            <div className='top'>
-                {/* <img src={logo} className='logo' /> */}
-            </div>
             <div className='center'>
                 <ul>
                     <p className="title">MAIN</p>
@@ -74,11 +71,11 @@ const SideBar = () => {
                             <span>Hike Letter</span>
                         </li>
                     </Link>
-                    <p className="title">USER</p>
-                    <li>
+                    <p className="title">ADMIN</p>
+                    {/* <li>
                         <AccountBoxIcon className='icon' />
                         <span>Profile</span>
-                    </li>
+                    </li> */}
                     <Link to='/' style={{ textDecoration: "none" }}>
                         <li>
                             <LogoutIcon className='icon' />

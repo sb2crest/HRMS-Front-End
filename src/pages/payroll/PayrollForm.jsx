@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import './payroll.scss';
-import { Link } from 'react-router-dom';
 import axios from 'axios';
-import { IoArrowBackCircleOutline } from "react-icons/io5";
+import SideBar from '../../components/sidebar/SideBar';
 
 const PayrollForm = () => {
     /* state for fields */
@@ -56,7 +55,6 @@ const PayrollForm = () => {
     const calculateTotalAmount = () => {
         const gross_Earning = parseFloat(grossEarning) || 0;
         const total_Deduction = parseFloat(totalDeduction) || 0;
-
         const totalNetPay = gross_Earning - total_Deduction;
         setTotalAmount(totalNetPay.toFixed(2));
     }
@@ -137,195 +135,191 @@ const PayrollForm = () => {
     };
 
     return (
-        <div className='payroll'>
-            <div class="row">
-                <div className="back-btn">
-                    <Link to='/home'>
-                        <button class="btn btn-lg text-center"><span><IoArrowBackCircleOutline className='icon' /></span></button>
-                    </Link>
-                </div>
+        <div style={{ display: "flex" }}>
+            <div className="sidebar">
+                <SideBar />
             </div>
-            <div className="container">
-                <div className="form">
-                    <form>
-                        {/* employee details */}
-                        <div class="hr-text-hr">
-                            <hr class="hr-left"></hr>
-                            <span class="text">Employee Details</span>
-                            <hr class="hr-right"></hr>
-                        </div>
-                        <div className="earning-container" style={{ display: "flex" }}>
-                            <div className="input-container">
-                                <input
-                                    type='text'
-                                    className='input'
-                                    value={employee}
-                                    onChange={(e) => setEmployee(e.target.value)}
-                                />
-                                <label className='placeholder'>Employee</label>
+            <div className='payroll'>
+                <div className="container">
+                    <div className="form">
+                        <form>
+                            {/* employee details */}
+                            <div class="hr-text-hr">
+                                <hr class="hr-left"></hr>
+                                <span class="text">Employee Details</span>
+                                <hr class="hr-right"></hr>
+                            </div>
+                            <div className="earning-container" style={{ display: "flex" }}>
+                                <div className="input-container">
+                                    <input
+                                        type='text'
+                                        className='input'
+                                        value={employee}
+                                        onChange={(e) => setEmployee(e.target.value)}
+                                    />
+                                    <label className='placeholder'>Employee</label>
+                                </div>
+                                <div className="input-container">
+                                    <input
+                                        type='text'
+                                        className='input'
+                                        value={employeeID}
+                                        onChange={(e) => setEmployeeID(e.target.value)}
+                                    />
+                                    <label className='placeholder'>Employee ID</label>
+                                </div>
+                                <div className="input-container">
+                                    <input
+                                        type='text'
+                                        className='input'
+                                        value={basicSalary}
+                                        onChange={(e) => setBasicSalary(e.target.value)}
+                                    />
+                                    <label className='placeholder'> Basic Salary</label>
+                                </div>
+                                <div className="input-container">
+                                    <input
+                                        type='text'
+                                        className='input'
+                                        value={payperiod}
+                                        onChange={(e) => setPayPeriod(e.target.value)}
+                                    />
+                                    <label className='placeholder'>Pay Period</label>
+                                </div>
+                            </div>
+                            <div className="earning-container" style={{ display: "flex" }}>
+                                <div className="input-container">
+                                    <input
+                                        type='text'
+                                        className='input'
+                                        value={payperiod}
+                                        onChange={(e) => setPayPeriod(e.target.value)}
+                                    />
+                                    <label className='placeholder'>Pay Date</label>
+                                </div>
+                            </div>
+                            {/* allowance details */}
+                            <div class="hr-text-hr">
+                                <hr class="hr-left"></hr>
+                                <span class="text">Allowance Details</span>
+                                <hr class="hr-right"></hr>
+                            </div>
+                            <div className="earning-container" style={{ display: "flex" }}>
+                                <div className="input-container">
+                                    <input
+                                        type='text'
+                                        className='input'
+                                        value={rentAllowance}
+                                        onChange={(e) => setRentAllowance(e.target.value)}
+                                    />
+                                    <label className='placeholder'>Rent Allowance</label>
+                                </div>
+                                <div className="input-container">
+                                    <input
+                                        type='text'
+                                        className='input'
+                                        value={medicalAllowance}
+                                        onChange={(e) => setMedicalAllowance(e.target.value)}
+                                    />
+                                    <label className='placeholder'>Medical Allowance</label>
+                                </div>
+                                <div className="input-container">
+                                    <input
+                                        type='text'
+                                        className='input'
+                                        value={otherAllowance}
+                                        onChange={(e) => setOtherAllowance(e.target.value)}
+                                    />
+                                    <label className='placeholder'> Other Allowance</label>
+                                </div>
+                                <div className="input-container">
+                                    <input
+                                        type='text'
+                                        className='input'
+                                        value={grossEarning}
+                                        onChange={(e) => setGrossEarning(e.target.value)}
+                                    />
+                                    <label className='placeholder'> Gross Earning</label>
+                                </div>
+                            </div>
+                            {/* allowance details */}
+                            <div class="hr-text-hr">
+                                <hr class="hr-left"></hr>
+                                <span class="text">Deduction Details</span>
+                                <hr class="hr-right"></hr>
+                            </div>
+                            <div className="deduction-container" style={{ display: "flex" }}>
+                                <div className="input-container">
+                                    <input
+                                        type='text'
+                                        className='input'
+                                        value={incomeTax}
+                                        onChange={(e) => setIncomeTax(e.target.value)}
+                                    />
+                                    <label className='placeholder'>Income Tax</label>
+                                </div>
+                                <div className="input-container">
+                                    <input
+                                        type='text'
+                                        className='input'
+                                        value={providentFund}
+                                        onChange={(e) => setProvidentFund(e.target.value)}
+                                    />
+                                    <label className='placeholder'>Provident Fund</label>
+                                </div>
+                                <div className="input-container">
+                                    <input
+                                        type='text'
+                                        className='input'
+                                        value={professionalTax}
+                                        onChange={(e) => setProfessionalTax(e.target.value)}
+                                    />
+                                    <label className='placeholder'> Professional Tax</label>
+                                </div>
+                                <div className="input-container">
+                                    <input
+                                        type='text'
+                                        className='input'
+                                        value={leaveDeduction}
+                                        onChange={(e) => setLeaveDeduction(e.target.value)}
+                                    />
+                                    <label className='placeholder'>Leave Deduction</label>
+                                </div>
                             </div>
                             <div className="input-container">
                                 <input
                                     type='text'
                                     className='input'
-                                    value={employeeID}
-                                    onChange={(e) => setEmployeeID(e.target.value)}
+                                    value={totalDeduction}
+                                    onChange={(e) => setTotalDeduction(e.target.value)}
                                 />
-                                <label className='placeholder'>Employee ID</label>
+                                <label className='placeholder'>Total Deduction</label>
                             </div>
-                            <div className="input-container">
-                                <input
-                                    type='text'
-                                    className='input'
-                                    value={basicSalary}
-                                    onChange={(e) => setBasicSalary(e.target.value)}
-                                />
-                                <label className='placeholder'> Basic Salary</label>
+                            <div class="hr-text-hr">
+                                <hr class="hr-left"></hr>
                             </div>
-                            <div className="input-container">
-                                <input
-                                    type='text'
-                                    className='input'
-                                    value={payperiod}
-                                    onChange={(e) => setPayPeriod(e.target.value)}
-                                />
-                                <label className='placeholder'>Pay Period</label>
+                            <div className="total-amount">
+                                <div className="div">
+                                    <p className='header'>TOTAL NET PAYABLE</p>
+                                    <p className='sub-header'>Gross Earning - Total Deduction</p>
+                                </div>
+                                <div className="div">
+                                    <p
+                                        className='amount'
+                                        value={totalAmount}
+                                        onChange={(e) => setTotalAmount(e.target.value)}
+                                    >
+                                        ₹ {totalAmount}
+                                    </p>
+                                    <p className='sub-header'>Indian Rupee {amountInWords} Only</p>
+                                </div>
                             </div>
-                        </div>
-                        <div className="earning-container" style={{ display: "flex" }}>
-                            <div className="input-container">
-                                <input
-                                    type='text'
-                                    className='input'
-                                    value={payperiod}
-                                    onChange={(e) => setPayPeriod(e.target.value)}
-                                />
-                                <label className='placeholder'>Pay Date</label>
+                            <div className="button">
+                                <button className='back-button'>Preview PDF</button>
+                                <button className='save-button' onClick={handleSave}>Send PDF</button>
                             </div>
-                        </div>
-                        {/* allowance details */}
-                        <div class="hr-text-hr">
-                            <hr class="hr-left"></hr>
-                            <span class="text">Allowance Details</span>
-                            <hr class="hr-right"></hr>
-                        </div>
-                        <div className="earning-container" style={{ display: "flex" }}>
-                            <div className="input-container">
-                                <input
-                                    type='text'
-                                    className='input'
-                                    value={rentAllowance}
-                                    onChange={(e) => setRentAllowance(e.target.value)}
-                                />
-                                <label className='placeholder'>Rent Allowance</label>
-                            </div>
-                            <div className="input-container">
-                                <input
-                                    type='text'
-                                    className='input'
-                                    value={medicalAllowance}
-                                    onChange={(e) => setMedicalAllowance(e.target.value)}
-                                />
-                                <label className='placeholder'>Medical Allowance</label>
-                            </div>
-                            <div className="input-container">
-                                <input
-                                    type='text'
-                                    className='input'
-                                    value={otherAllowance}
-                                    onChange={(e) => setOtherAllowance(e.target.value)}
-                                />
-                                <label className='placeholder'> Other Allowance</label>
-                            </div>
-                            <div className="input-container">
-                                <input
-                                    type='text'
-                                    className='input'
-                                    value={grossEarning}
-                                    onChange={(e) => setGrossEarning(e.target.value)}
-                                />
-                                <label className='placeholder'> Gross Earning</label>
-                            </div>
-                        </div>
-                        {/* allowance details */}
-                        <div class="hr-text-hr">
-                            <hr class="hr-left"></hr>
-                            <span class="text">Deduction Details</span>
-                            <hr class="hr-right"></hr>
-                        </div>
-                        <div className="deduction-container" style={{ display: "flex" }}>
-                            <div className="input-container">
-                                <input
-                                    type='text'
-                                    className='input'
-                                    value={incomeTax}
-                                    onChange={(e) => setIncomeTax(e.target.value)}
-                                />
-                                <label className='placeholder'>Income Tax</label>
-                            </div>
-                            <div className="input-container">
-                                <input
-                                    type='text'
-                                    className='input'
-                                    value={providentFund}
-                                    onChange={(e) => setProvidentFund(e.target.value)}
-                                />
-                                <label className='placeholder'>Provident Fund</label>
-                            </div>
-                            <div className="input-container">
-                                <input
-                                    type='text'
-                                    className='input'
-                                    value={professionalTax}
-                                    onChange={(e) => setProfessionalTax(e.target.value)}
-                                />
-                                <label className='placeholder'> Professional Tax</label>
-                            </div>
-                            <div className="input-container">
-                                <input
-                                    type='text'
-                                    className='input'
-                                    value={leaveDeduction}
-                                    onChange={(e) => setLeaveDeduction(e.target.value)}
-                                />
-                                <label className='placeholder'>Leave Deduction</label>
-                            </div>
-                        </div>
-                        <div className="input-container">
-                            <input
-                                type='text'
-                                className='input'
-                                value={totalDeduction}
-                                onChange={(e) => setTotalDeduction(e.target.value)}
-                            />
-                            <label className='placeholder'>Total Deduction</label>
-                        </div>
-                        <div class="hr-text-hr">
-                            <hr class="hr-left"></hr>
-                        </div>
-                        <div className="total-amount">
-                            <div className="div">
-                                <p className='header'>TOTAL NET PAYABLE</p>
-                                <p className='sub-header'>Gross Earning - Total Deduction</p>
-                            </div>
-                            <div className="div">
-                                <p
-                                    className='amount'
-                                    value={totalAmount}
-                                    onChange={(e) => setTotalAmount(e.target.value)}
-                                >
-                                    ₹ {totalAmount}
-                                </p>
-                                <p className='sub-header'>Indian Rupee {amountInWords} Only</p>
-                            </div>
-                        </div>
-                        <div className="button">
-                            <Link to="/home">
-                                <button className='back-button'>Back To Home</button>
-                            </Link>
-                            <button className='save-button' onClick={handleSave}>Save</button>
-                        </div>
-                    </form>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
