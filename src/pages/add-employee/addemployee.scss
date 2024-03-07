@@ -94,9 +94,113 @@ video {
         }
     }
 
-    /* form container */
+    /* employee form container */
     .employee {
         height: 80vh;
+        justify-content: center;
+        align-items: center;
+        -webkit-box-shadow: 2px 4px 10px 1px rgba(0, 0, 0, 0.47);
+        box-shadow: 2px 4px 10px 1px rgba(201, 201, 201, 0.47);
+        background-color: #fff;
+
+        .side-img {
+            position: relative;
+            display: flex;
+            flex-basis: 50%;
+            width: 100%;
+            height: 100%;
+            padding: 0 1.5rem;
+            text-align: center;
+            justify-content: center;
+            flex-direction: column;
+            margin: auto;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .form {
+            .field-container {
+                .input-container {
+                    position: relative;
+                    margin: 16px 30px;
+
+                    .input {
+                        padding: 12px;
+                        box-sizing: border-box;
+                        outline: none;
+                        border: 1px solid rgb(62, 61, 61);
+                        border-radius: 5px;
+                    }
+
+                    .placeholder {
+                        position: absolute;
+                        top: -10px;
+                        left: 8px;
+                        font-size: 14px;
+                        padding: 0 5px;
+                        color: rgb(62, 61, 61);
+                        transition: 0.3s;
+                        pointer-events: none;
+                        font-size: 14px;
+                        background-color: #fff;
+                    }
+
+                    .input:focus+.placeholder {
+                        color: #0b74dd;
+                        background-color: #fff;
+                        font-weight: 600;
+                    }
+
+                    .input:focus {
+                        border: 1px solid #0b74dd;
+                    }
+
+                    input::placeholder {
+                        font-style: italic;
+                        font-size: 14px;
+                    }
+
+                    .checkbox {
+                        width: 18px;
+                        height: 20px;
+                        cursor: pointer;
+                        outline: none;
+                        vertical-align: middle;
+                        position: relative;
+                    }
+
+                    .label-for-promotion {
+                        padding: 5px;
+                        font-size: 14px;
+                        font-style: italic;
+                        font-weight: 500;
+                        color: gray;
+                    }
+                }
+            }
+
+            .button {
+                display: flex;
+                align-items: center;
+                justify-content: space-around;
+                margin: 20px;
+
+                .save-button {
+                    padding: 10px 60px;
+                    background-color: #96b3cc;
+                    border: none;
+                    color: #fff;
+                    font-size: 15px;
+                    font-weight: 600;
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+
+    /* trainee form container*/
+    .trainee {
+        height: 60vh;
         justify-content: center;
         align-items: center;
         -webkit-box-shadow: 2px 4px 10px 1px rgba(0, 0, 0, 0.47);
