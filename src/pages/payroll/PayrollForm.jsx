@@ -27,7 +27,6 @@ const PayrollForm = () => {
         const rent = parseFloat(rentAllowance) || 0;
         const medical = parseFloat(medicalAllowance) || 0;
         const other = parseFloat(otherAllowance) || 0;
-
         const gross = salary + rent + medical + other;
         setGrossEarning(gross.toFixed(2));
     }
@@ -65,7 +64,6 @@ const PayrollForm = () => {
 
     /* Number into Words */
     const [amountInWords, setAmountInWords] = useState('');
-
     const NumberToWords = (number) => {
         const units = ['', 'One', 'Two', 'Three', 'Four', 'Five', 'Six', 'Seven', 'Eight', 'Nine'];
         const teens = ['', 'Eleven', 'Twelve', 'Thirteen', 'Fourteen', 'Fifteen', 'Sixteen', 'Seventeen', 'Eighteen', 'Nineteen'];
@@ -104,74 +102,182 @@ const PayrollForm = () => {
         setAmountInWords(NumberToWords(totalAmount));
     }, [totalAmount]);
 
+    {/* Clear Form */ }
+    const handleClear = (e) => {
+        e.preventDefault();
+        setEmployee("");
+        setEmployeeID("");
+        setBasicSalary("");
+        setPayPeriod("");
+        setRentAllowance("");
+        setMedicalAllowance("");
+        setOtherAllowance("");
+        setGrossEarning("");
+        setIncomeTax("");
+        setProvidentFund("");
+        setProfessionalTax("");
+        setLeaveDeduction("");
+        setTotalDeduction("");
+        setTotalAmount("");
+        setPayDate("");
+    }
+
+    {/* Form Validation */ }
+    /* Validation function */
+    const validateInputs = () => {
+        let errors = {};
+
+        if (!employee) {
+            errors.employee = 'Employee name is required';
+        }
+        if (!employeeID) {
+            errors.employeeID = 'Employee ID is required';
+        }
+        if (!basicSalary) {
+            errors.basicSalary = 'Basic Salary is required';
+        } else if (isNaN(parseFloat(basicSalary))) {
+            errors.basicSalary = 'Basic Salary must be a valid number';
+        }
+        if (!payperiod) {
+            errors.payperiod = 'Pay Period is required';
+        }
+        if (!payDate) {
+            errors.payDate = 'Pay Date is required';
+        }
+        if (!rentAllowance) {
+            errors.rentAllowance = 'Rent Allowance is required';
+        } else if (isNaN(parseFloat(rentAllowance))) {
+            errors.rentAllowance = 'Rent Allowance must be a valid number';
+        }
+        if (!medicalAllowance) {
+            errors.medicalAllowance = 'Medical Allowance is required';
+        } else if (isNaN(parseFloat(medicalAllowance))) {
+            errors.medicalAllowance = 'Medical Allowance must be a valid number';
+        }
+        if (!otherAllowance) {
+            errors.otherAllowance = 'Other Allowance is required';
+        } else if (isNaN(parseFloat(otherAllowance))) {
+            errors.otherAllowance = 'Other Allowance must be a valid number';
+        }
+        if (!grossEarning) {
+            errors.grossEarning = 'Gross Earning is required';
+        } else if (isNaN(parseFloat(grossEarning))) {
+            errors.grossEarning = 'Gross Earning must be a valid number';
+        }
+        if (!incomeTax) {
+            errors.incomeTax = 'Income Tax is required';
+        } else if (isNaN(parseFloat(incomeTax))) {
+            errors.incomeTax = 'Income Tax must be a valid number';
+        }
+        if (!providentFund) {
+            errors.providentFund = 'Provident Fund is required';
+        } else if (isNaN(parseFloat(providentFund))) {
+            errors.providentFund = 'Provident Fund must be a valid number';
+        }
+        if (!professionalTax) {
+            errors.professionalTax = 'Professional Tax is required';
+        } else if (isNaN(parseFloat(professionalTax))) {
+            errors.professionalTax = 'Professional Tax must be a valid number';
+        }
+        if (!leaveDeduction) {
+            errors.leaveDeduction = 'Leave Deduction is required';
+        } else if (isNaN(parseFloat(leaveDeduction))) {
+            errors.leaveDeduction = 'Leave Deduction must be a valid number';
+        }
+        if (!totalDeduction) {
+            errors.totalDeduction = 'Total Deduction is required';
+        } else if (isNaN(parseFloat(totalDeduction))) {
+            errors.totalDeduction = 'Total Deduction must be a valid number';
+        }
+        return errors;
+    };
+
     /* API call for Saving and Sending Payroll PDF */
     const handleSave = async (e) => {
         e.preventDefault();
-        try {
-            console.log("employeeID:" + employeeID);
-            const response = await axios.post(`http://localhost:8081/admin/add-payroll`, {
-                payPeriod: payperiod,
-                payDate: payDate,
-                incomeTax: incomeTax,
-                employeeId: employeeID,
-                basic: basicSalary,
-                houseRentAllowance: rentAllowance,
-                medicalAllowance: medicalAllowance,
-                otherAllowance: otherAllowance,
-                grossEarnings: grossEarning,
-                providentFund: providentFund,
-                professionalTax: professionalTax,
-                leaveDeduction: leaveDeduction,
-                totalDeductions: totalDeduction,
-                totalNetPayable: totalAmount,
+        const validationErrors = validateInputs();
+        if (Object.keys(validationErrors).length === 0) {
+            try {
+                const response = await axios.post(`http://localhost:8081/admin/add-payroll`, {
+                    payPeriod: payperiod,
+                    payDate: payDate,
+                    incomeTax: incomeTax,
+                    employeeId: employeeID,
+                    basic: basicSalary,
+                    houseRentAllowance: rentAllowance,
+                    medicalAllowance: medicalAllowance,
+                    otherAllowance: otherAllowance,
+                    grossEarnings: grossEarning,
+                    providentFund: providentFund,
+                    professionalTax: professionalTax,
+                    leaveDeduction: leaveDeduction,
+                    totalDeductions: totalDeduction,
+                    totalNetPayable: totalAmount,
+                });
+                const responseData = response.data;
+                console.log("response:", responseData);
+                window.alert("Email has been sent successfully!");
+            } catch (error) {
+                console.log("error in adding payroll:", error);
+                window.alert("Error in sending Payslip");
+            }
+        } else {
+            Object.keys(validationErrors).forEach(field => {
+                window.alert(validationErrors[field]);
             });
-            const responseData = response.data;
-            console.log("response:", responseData);
-        } catch (error) {
-            console.log("error in adding payroll:", error);
         }
     };
 
     {/* API Call for Preview of Payslip */ }
     const handlePreview = async (e) => {
         e.preventDefault();
-        try {
-            const response = await axios.post('http://localhost:8081/admin/preview-payslip', {
-                payPeriod: payperiod,
-                payDate: incomeTax,
-                employeeId: employeeID,
-                basic: basicSalary,
-                houseRentAllowance: rentAllowance,
-                medicalAllowance: medicalAllowance,
-                otherAllowance: otherAllowance,
-                grossEarnings: grossEarning,
-                providentFund: providentFund,
-                professionalTax: professionalTax,
-                leaveDeduction: leaveDeduction,
-                totalDeductions: totalDeduction,
-                totalNetPayable: totalAmount,
-            },
-                {
-                    responseType: 'blob'
-                });
-            const data = response.data;
-            const blob = new Blob([data], { type: 'application/pdf' });
-            const url = URL.createObjectURL(blob);
-            window.open(url, '_blank');
+        const validationErrors = validateInputs();
+        if (Object.keys(validationErrors).length === 0) {
+            try {
+                const response = await axios.post('http://localhost:8081/admin/preview-payslip', {
+                    payPeriod: payperiod,
+                    payDate: incomeTax,
+                    employeeId: employeeID,
+                    basic: basicSalary,
+                    houseRentAllowance: rentAllowance,
+                    medicalAllowance: medicalAllowance,
+                    otherAllowance: otherAllowance,
+                    grossEarnings: grossEarning,
+                    providentFund: providentFund,
+                    professionalTax: professionalTax,
+                    leaveDeduction: leaveDeduction,
+                    totalDeductions: totalDeduction,
+                    totalNetPayable: totalAmount,
+                },
+                    {
+                        responseType: 'blob'
+                    });
+                const data = response.data;
+                const blob = new Blob([data], { type: 'application/pdf' });
+                const url = URL.createObjectURL(blob);
+                window.open(url, '_blank');
+            } catch (error) {
+                console.log("Error in preview of payslip:", error);
+                window.alert("Error in preview of the PDF");
+            }
+        } else {
+            Object.keys(validationErrors).forEach(field => {
+                window.alert(validationErrors[field]);
+            });
         }
-        catch (error) {
-            console.log("Error in preview of payslip:", error);
-        }
-    }
+    };
 
     return (
         <div style={{ display: "flex" }}>
+            {/* start : Side Bar */}
             <div className="sidebar">
                 <SideBar />
             </div>
+            {/* end : Side Bar */}
             <div className='payroll'>
                 <div className="container">
                     <div className="form">
+                        {/* start : PaySlip Form */}
                         <form>
                             {/* employee details */}
                             <div class="hr-text-hr">
@@ -213,8 +319,9 @@ const PayrollForm = () => {
                                         className='input'
                                         value={payperiod}
                                         onChange={(e) => setPayPeriod(e.target.value)}
+                                        placeholder='March 2024'
                                     />
-                                    <label className='placeholder'>Pay Period</label>
+                                    <label className='placeholder'>Pay Month</label>
                                 </div>
                             </div>
                             <div className="earning-container" style={{ display: "flex" }}>
@@ -224,6 +331,7 @@ const PayrollForm = () => {
                                         className='input'
                                         value={payDate}
                                         onChange={(e) => setPayDate(e.target.value)}
+                                        placeholder='01-Mar-2024'
                                     />
                                     <label className='placeholder'>Pay Date</label>
                                 </div>
@@ -328,12 +436,13 @@ const PayrollForm = () => {
                             <div class="hr-text-hr">
                                 <hr class="hr-left"></hr>
                             </div>
+                            {/* Total Amount Payable */}
                             <div className="total-amount">
-                                <div className="div">
+                                <div>
                                     <p className='header'>TOTAL NET PAYABLE</p>
                                     <p className='sub-header'>Gross Earning - Total Deduction</p>
                                 </div>
-                                <div className="div">
+                                <div>
                                     <p
                                         className='amount'
                                         value={totalAmount}
@@ -344,11 +453,15 @@ const PayrollForm = () => {
                                     <p className='sub-header'>Indian Rupee {amountInWords} Only</p>
                                 </div>
                             </div>
+                            {/* start : Button */}
                             <div className="button">
                                 <button className='back-button' onClick={handlePreview}>Preview PDF</button>
                                 <button className='save-button' onClick={handleSave}>Send PDF</button>
+                                <button className='clear-button' onClick={handleClear}>Clear</button>
                             </div>
+                            {/* end : Button */}
                         </form>
+                        {/* end : PaySlip Form */}
                     </div>
                 </div>
             </div>
