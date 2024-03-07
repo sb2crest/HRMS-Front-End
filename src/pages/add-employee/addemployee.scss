@@ -45,10 +45,60 @@ video {
     box-sizing: border-box;
     background-color: #ECF0F4;
 
+    .role-container {
+        width: 90vh;
+        height: 50vh;
+        justify-content: center;
+        align-items: center;
+        -webkit-box-shadow: 2px 4px 10px 1px rgba(0, 0, 0, 0.47);
+        box-shadow: 2px 4px 10px 1px rgba(201, 201, 201, 0.47);
+        background-color: #fff;
+
+        .p-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 35px;
+
+            .p-text {
+                font-size: 20px;
+                color: gray;
+                font-weight: 500;
+            }
+        }
+
+        .role {
+            display: flex;
+            justify-content: space-around;
+            margin: 20px;
+
+            .roles {
+                font-size: 17px;
+                color: gray;
+                font-weight: 500;
+                margin: 12px;
+
+            }
+
+            .admin {
+                background: rgb(232, 230, 230);
+                padding: 2rem 3rem;
+                cursor: pointer;
+
+                .icon {
+                    color: #73a2cb;
+                    font-size: 40px;
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+
     /* form container */
     .employee {
         height: 80vh;
-        justify-content: space-between;
+        justify-content: center;
+        align-items: center;
         -webkit-box-shadow: 2px 4px 10px 1px rgba(0, 0, 0, 0.47);
         box-shadow: 2px 4px 10px 1px rgba(201, 201, 201, 0.47);
         background-color: #fff;
@@ -105,6 +155,11 @@ video {
                         border: 1px solid #0b74dd;
                     }
 
+                    input::placeholder {
+                        font-style: italic;
+                        font-size: 14px;
+                    }
+
                     .checkbox {
                         width: 18px;
                         height: 20px;
@@ -127,10 +182,11 @@ video {
             .button {
                 display: flex;
                 align-items: center;
-                justify-content: center;
+                justify-content: space-around;
+                margin: 20px;
 
                 .save-button {
-                    padding: 10px 120px;
+                    padding: 10px 60px;
                     background-color: #96b3cc;
                     border: none;
                     color: #fff;

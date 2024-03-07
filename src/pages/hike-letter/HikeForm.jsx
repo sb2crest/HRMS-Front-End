@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import './hikeform.scss';
 import axios from 'axios';
-import Snackbar from "@mui/material/Snackbar";
 import SideBar from '../../components/sidebar/SideBar';
 
 const HikeForm = () => {
@@ -28,17 +27,6 @@ const HikeForm = () => {
         var selectedValue = dropdown.options[dropdown.selectedIndex].text;
         setNewPosition(selectedValue);
     }
-
-
-    /* Email successfully sent */
-    const handleSnackbarClose = (
-    ) => {
-        if (reason === "clickaway") {
-            return;
-        }
-        setEmailSent(false);
-    };
-
 
     {/* API Call for Previewing the PDF */ }
     const handlePreview = async (e) => {
@@ -93,7 +81,6 @@ const HikeForm = () => {
     const handleGetDesignation = async (e) => {
         const inputValue = e.target.value;
         setEmployee(inputValue);
-        console.log("EmployeeID:" + inputValue);
         try {
             const response = await axios.get(`http://localhost:8081/admin/get-designation/${inputValue}`);
             console.log("Present Designation:" + response.data);
@@ -279,17 +266,6 @@ const HikeForm = () => {
                                     >
                                         Send Email
                                     </button>
-                                    <Snackbar
-                                        open={emailsent}
-                                        // autoHideDuration={6000}
-                                        onClose={handleSnackbarClose}
-                                        message="Email Sent Successfully"
-                                        SnackbarContentProps={{
-                                            style: { backgroundColor: 'green' }
-                                        }}
-                                        style={{ minWidth: '200px' }}
-                                        anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
-                                    />
                                     <button
                                         className='save-button'
                                         onClick={handlePreview}
