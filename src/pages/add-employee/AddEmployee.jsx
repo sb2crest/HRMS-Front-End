@@ -139,11 +139,13 @@ const AddEmployee = () => {
                             </div>
                         </>
                     ) : (
-                        <div className="employee flex">
-                            <div className="form">
-                                <form>
-                                    {alreadyexisting ? (
-                                        <>
+                        // <div className="employee flex">
+                        <div>
+                            {/* <form> */}
+                            {alreadyexisting ? (
+                                <div className="employee flex">
+                                    <div className="form">
+                                        <form>
                                             <div className="field-container" style={{ display: "flex" }}>
                                                 <div className="input-container">
                                                     <input
@@ -263,9 +265,13 @@ const AddEmployee = () => {
                                                     Save
                                                 </button>
                                             </div>
-                                        </>
-                                    ) : (
-                                        <>
+                                        </form>
+                                    </div>
+                                </div>
+                            ) : (
+                                <div className="trainee flex">
+                                    <div className="form">
+                                        <form>
                                             <div className="field-container" style={{ display: "flex" }}>
                                                 <div className="input-container">
                                                     <input
@@ -365,15 +371,17 @@ const AddEmployee = () => {
                                                     Save
                                                 </button>
                                             </div>
-                                        </>
-                                    )}
-                                </form>
-                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            )}
+                            {/* </form> */}
+                            {/* </div> */}
                         </div>
                     )
                 }
             </div>
-        </div>
+        </div >
     )
 }
 export default AddEmployee

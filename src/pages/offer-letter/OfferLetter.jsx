@@ -1,10 +1,7 @@
 import React, { useState } from 'react';
 import './offerletter.scss';
-import video from '../../images/offer-letter-gif.gif';
-import { Link } from 'react-router-dom';
 import axios from 'axios';
 import SideBar from '../../components/sidebar/SideBar';
-import { IoArrowBackCircleOutline } from "react-icons/io5";
 
 const OfferLetter = () => {
     /* Form State */
@@ -40,7 +37,6 @@ const OfferLetter = () => {
             console.log("Error in sending details:" + error);
         }
     }
-
 
     /* API Integration for PDF Preview */
     const handleSendPDF = async (e) => {
