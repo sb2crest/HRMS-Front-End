@@ -18,7 +18,7 @@ const OfferLetter = () => {
     const [currentDate, setCurrentDate] = useState('');
 
     /* API Integration for PDF Preview */
-    const handleSave = async (e) => {
+    const handlePreview = async (e) => {
         e.preventDefault();
         try {
             const response = await axios.post("http://localhost:8081/offer-letter/preview-letter", {
@@ -31,30 +31,16 @@ const OfferLetter = () => {
                 ctc: basicSalary,
                 issuedDate: currentDate
             }, {
-                responseType: 'blob' // This ensures that the response is treated as a binary blob
+                responseType: 'blob'
             });
-
-            // Create a blob from the response data
             const blob = new Blob([response.data], { type: 'application/pdf' });
-
-            // Create temporary URL
             const url = window.URL.createObjectURL(blob);
-
-            // Create a link element
-            const link = document.createElement('a');
-            link.href = url;
-            link.setAttribute('download', 'offer_letter.pdf'); // Set the filename for download
-            document.body.appendChild(link);
-
-            // Programmatically click the link to trigger download
-            link.click();
-
-            // Clean up resources by revoking the URL
-            window.URL.revokeObjectURL(url);
+            window.open(url, '_blank');
         } catch (error) {
             console.log("Error in sending details:" + error);
         }
     }
+
 
     /* API Integration for PDF Preview */
     const handleSendPDF = async (e) => {
@@ -179,7 +165,7 @@ const OfferLetter = () => {
                                     </button>
                                     <button
                                         className='save-button'
-                                        onClick={handleSave}>
+                                        onClick={handlePreview}>
                                         Preview PDF
                                     </button>
                                 </div>
