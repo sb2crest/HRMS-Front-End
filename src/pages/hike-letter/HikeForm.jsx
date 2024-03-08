@@ -4,6 +4,7 @@ import axios from 'axios';
 import SideBar from '../../components/sidebar/SideBar';
 
 const HikeForm = () => {
+    // State variables for form
     const [employee, setEmployee] = useState("");
     const [employeeName, setEmployeeName] = useState("");
     const [percentage, setPercentage] = useState("");
@@ -17,6 +18,13 @@ const HikeForm = () => {
     const [currentDate, setCurrentDate] = useState("");
     const [approvedDate, setApprovedDate] = useState("");
 
+    // State variables for validation errors
+    const [nameError, setNameError] = useState("");
+    const [percentageError, setPercentageError] = useState("");
+    const [approvedByError, setApprovedByError] = useState("");
+    const [effectiveDayError, setEffectiveDayError] = useState("");
+    const [reasonError, setReasonError] = useState("");
+
     const handlePromotionStatus = () => {
         setPromotionStatus(true);
     }
@@ -28,9 +36,47 @@ const HikeForm = () => {
         setNewPosition(selectedValue);
     }
 
+    // Form validation function
+    const validateForm = () => {
+        let isValid = true;
+        if (!employeeName) {
+            setNameError("Employee Name is required");
+            window.alert("Employee Name is required");
+            isValid = false;
+        } else {
+            setNameError("");
+        }
+        if (!percentage) {
+            setPercentageError("Hike Percentage is required");
+            window.alert("Hike Percentage is required");
+            isValid = false;
+        } else {
+            setPercentageError("");
+        }
+        if (!approvedBy) {
+            setApprovedByError("Approved By is required");
+            window.alert("Approved By is required");
+            isValid = false;
+        } else {
+            setApprovedByError("");
+        }
+        if (!effectiveDay) {
+            setEffectiveDayError("Effective Date is required");
+            window.alert("Effective Date is required");
+            isValid = false;
+        } else {
+            setEffectiveDayError("");
+        }
+        return isValid;
+    };
+
+
     {/* API Call for Previewing the PDF */ }
     const handlePreview = async (e) => {
         e.preventDefault();
+        if (!validateForm()) {
+            return;
+        }
         try {
             const response = await axios.post('http://localhost:8081/admin/preview-hike', {
                 employeeId: employee,
@@ -58,6 +104,9 @@ const HikeForm = () => {
     {/* API Call for Sending Email the PDF */ }
     const handleSendEmail = async (e) => {
         e.preventDefault();
+        if (!validateForm()) {
+            return;
+        }
         try {
             const response = await axios.post('http://localhost:8081/admin/update-hike', {
                 employeeId: employee,
