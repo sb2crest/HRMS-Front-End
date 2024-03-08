@@ -4,8 +4,10 @@ import axios from 'axios';
 import SideBar from '../../components/sidebar/SideBar';
 import { CgProfile } from "react-icons/cg";
 import { IoMdPersonAdd } from "react-icons/io";
+import { RxCross1 } from "react-icons/rx";
 
 const AddEmployee = () => {
+    /* state for fields */
     const [name, setName] = useState("");
     const [designation, setDesignation] = useState("");
     const [email, setEmailID] = useState("");
@@ -17,7 +19,8 @@ const AddEmployee = () => {
     const [grossSalary, setGrossSalary] = useState("");
     const [UAN, setUAN] = useState("");
     const [PF, setPF] = useState("");
-    const [errors, setErrors] = useState({});
+
+    /* conditional rendering */
     const [alreadyexisting, setAlreadyExisting] = useState(false);
     const [newJoinee, setnewJoinee] = useState(false);
     const [role, setRole] = useState(false);
@@ -45,6 +48,9 @@ const AddEmployee = () => {
     useEffect(() => {
         handleRole();
     }, [])
+
+    /* form validation */
+    const [errors, setErrors] = useState({});
 
     const validateFormData = () => {
         const newErrors = {};
@@ -90,6 +96,7 @@ const AddEmployee = () => {
             });
         }
     };
+
     {/* Clear Form */ }
     const handleClear = (e) => {
         e.preventDefault();
@@ -104,6 +111,7 @@ const AddEmployee = () => {
         setGrossSalary("");
     }
 
+    {/* Select Role */ }
     const handleGoBack = (e) => {
         e.preventDefault();
         setRole(true);
@@ -111,13 +119,16 @@ const AddEmployee = () => {
 
     return (
         <div style={{ display: "flex" }}>
+            {/* start : sidebar */}
             <div className="sidebar">
                 <SideBar />
             </div>
+            {/* end : sidebar */}
             <div className='add-employee'>
                 {role ?
                     (
                         <>
+                            {/* start : role */}
                             <div className="role-container">
                                 <div className="p-container">
                                     <p className='p-text'>Add an Employee or New Joinee</p>
@@ -137,15 +148,20 @@ const AddEmployee = () => {
                                     </div>
                                 </div>
                             </div>
+                            {/* end : role */}
                         </>
                     ) : (
-                        // <div className="employee flex">
                         <div>
-                            {/* <form> */}
+                            {/* start : employee Form */}
                             {alreadyexisting ? (
                                 <div className="employee flex">
                                     <div className="form">
                                         <form>
+                                            <div class="row">
+                                                <div className='cross'>
+                                                    <button class="btn btn-lg text-center" onClick={handleGoBack}><span><RxCross1 /></span></button>
+                                                </div>
+                                            </div>
                                             <div className="field-container" style={{ display: "flex" }}>
                                                 <div className="input-container">
                                                     <input
@@ -255,9 +271,6 @@ const AddEmployee = () => {
                                                 </div>
                                             </div>
                                             <div className="button">
-                                                <button className='save-button' onClick={handleGoBack}>
-                                                    Select Role
-                                                </button>
                                                 <button className='save-button' onClick={handleClear}>
                                                     Clear
                                                 </button>
@@ -267,11 +280,18 @@ const AddEmployee = () => {
                                             </div>
                                         </form>
                                     </div>
+                                    {/* end : employee Form */}
                                 </div>
                             ) : (
                                 <div className="trainee flex">
+                                    {/* start : trainee  Form */}
                                     <div className="form">
                                         <form>
+                                            <div class="row">
+                                                <div className='cross'>
+                                                    <button class="btn btn-lg text-center" onClick={handleGoBack}><span><RxCross1 /></span></button>
+                                                </div>
+                                            </div>
                                             <div className="field-container" style={{ display: "flex" }}>
                                                 <div className="input-container">
                                                     <input
@@ -280,7 +300,7 @@ const AddEmployee = () => {
                                                         value={name}
                                                         onChange={(e) => setName(e.target.value)}
                                                     />
-                                                    <label className='placeholder'>Employee Name</label>
+                                                    <label className='placeholder'>Trainee Name</label>
                                                 </div>
                                                 <div className="input-container">
                                                     <input
@@ -360,10 +380,8 @@ const AddEmployee = () => {
                                                     <label className='placeholder'>Gross Salary</label>
                                                 </div>
                                             </div>
+                                            {/* start : Button */}
                                             <div className="button">
-                                                <button className='save-button' onClick={handleGoBack}>
-                                                    Select Role
-                                                </button>
                                                 <button className='save-button' onClick={handleClear}>
                                                     Clear
                                                 </button>
@@ -371,12 +389,12 @@ const AddEmployee = () => {
                                                     Save
                                                 </button>
                                             </div>
+                                            {/* end : Button */}
                                         </form>
                                     </div>
+                                    {/* end : trainee  Form */}
                                 </div>
                             )}
-                            {/* </form> */}
-                            {/* </div> */}
                         </div>
                     )
                 }

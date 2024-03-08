@@ -123,6 +123,7 @@ const PayrollForm = () => {
     }
 
     {/* Form Validation */ }
+    
     /* Validation function */
     const validateInputs = () => {
         let errors = {};
@@ -311,7 +312,7 @@ const PayrollForm = () => {
                                         value={basicSalary}
                                         onChange={(e) => setBasicSalary(e.target.value)}
                                     />
-                                    <label className='placeholder'> Basic Salary</label>
+                                    <label className='placeholder'> Gross Salary</label>
                                 </div>
                                 <div className="input-container">
                                     <input
@@ -377,7 +378,7 @@ const PayrollForm = () => {
                                         value={grossEarning}
                                         onChange={(e) => setGrossEarning(e.target.value)}
                                     />
-                                    <label className='placeholder'> Gross Earning</label>
+                                    <label className='placeholder'> Basic Earning</label>
                                 </div>
                             </div>
                             {/* allowance details */}

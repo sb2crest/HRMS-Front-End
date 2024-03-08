@@ -13,7 +13,7 @@ const HikeForm = () => {
     const [promotionStatus, setPromotionStatus] = useState(false);
     const [emailsent, setEmailSent] = useState(false);
     const [presentDesignation, setPresentDesignation] = useState("");
-    const [newPosition, setNewPosition] = useState("");
+    const [newPosition, setNewPosition] = useState(null);
     const [currentDate, setCurrentDate] = useState("");
     const [approvedDate, setApprovedDate] = useState("");
 
@@ -71,6 +71,7 @@ const HikeForm = () => {
             const data = response.data;
             console.log(data);
             setEmailSent(true);
+            window.alert("Mail sent sucessfully!");
         }
         catch (error) {
             console.log("Error in sending Mail:" + error);
