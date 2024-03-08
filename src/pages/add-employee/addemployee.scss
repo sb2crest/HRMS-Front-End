@@ -45,6 +45,7 @@ video {
     box-sizing: border-box;
     background-color: #ECF0F4;
 
+    /* role container*/
     .role-container {
         width: 90vh;
         height: 50vh;
@@ -53,6 +54,7 @@ video {
         -webkit-box-shadow: 2px 4px 10px 1px rgba(0, 0, 0, 0.47);
         box-shadow: 2px 4px 10px 1px rgba(201, 201, 201, 0.47);
         background-color: #fff;
+        border-radius: 10px;
 
         .p-container {
             display: flex;
@@ -61,9 +63,9 @@ video {
             margin: 35px;
 
             .p-text {
-                font-size: 20px;
+                font-size: 17.5px;
                 color: gray;
-                font-weight: 500;
+                font-weight: 400;
             }
         }
 
@@ -73,21 +75,22 @@ video {
             margin: 20px;
 
             .roles {
-                font-size: 17px;
-                color: gray;
+                font-size: 16px;
+                color: rgb(162, 160, 160);
                 font-weight: 500;
                 margin: 12px;
-
             }
 
             .admin {
-                background: rgb(232, 230, 230);
-                padding: 2rem 3rem;
+                background: rgb(247, 246, 246);
+                padding: 1.8rem 2.8rem;
                 cursor: pointer;
+                border-radius: 10px;
+
 
                 .icon {
                     color: #73a2cb;
-                    font-size: 40px;
+                    font-size: 38px;
                     cursor: pointer;
                 }
             }
@@ -96,30 +99,28 @@ video {
 
     /* employee form container */
     .employee {
-        height: 80vh;
         justify-content: center;
         align-items: center;
         -webkit-box-shadow: 2px 4px 10px 1px rgba(0, 0, 0, 0.47);
         box-shadow: 2px 4px 10px 1px rgba(201, 201, 201, 0.47);
         background-color: #fff;
-
-        .side-img {
-            position: relative;
-            display: flex;
-            flex-basis: 50%;
-            width: 100%;
-            height: 100%;
-            padding: 0 1.5rem;
-            text-align: center;
-            justify-content: center;
-            flex-direction: column;
-            margin: auto;
-            border-radius: 10px;
-            overflow: hidden;
-        }
+        border-radius: 10px;
 
         .form {
+
+            /* close button*/
+            .cross button {
+                margin-left: 92%;
+                color: gray;
+                background-color: white;
+                border: none;
+                font-size: 18px;
+            }
+
+            /* input container*/
             .field-container {
+                margin-top: -10px;
+
                 .input-container {
                     position: relative;
                     margin: 16px 30px;
@@ -179,6 +180,7 @@ video {
                 }
             }
 
+            /* button container */
             .button {
                 display: flex;
                 align-items: center;
@@ -200,29 +202,25 @@ video {
 
     /* trainee form container*/
     .trainee {
-        height: 60vh;
         justify-content: center;
         align-items: center;
         -webkit-box-shadow: 2px 4px 10px 1px rgba(0, 0, 0, 0.47);
         box-shadow: 2px 4px 10px 1px rgba(201, 201, 201, 0.47);
         background-color: #fff;
-
-        .side-img {
-            position: relative;
-            display: flex;
-            flex-basis: 50%;
-            width: 100%;
-            height: 100%;
-            padding: 0 1.5rem;
-            text-align: center;
-            justify-content: center;
-            flex-direction: column;
-            margin: auto;
-            border-radius: 10px;
-            overflow: hidden;
-        }
+        border-radius: 10px;
 
         .form {
+
+            /* close button*/
+            .cross button {
+                margin-left: 92%;
+                color: gray;
+                background-color: white;
+                border: none;
+                font-size: 18px;
+            }
+
+            /* input container*/
             .field-container {
                 .input-container {
                     position: relative;
@@ -283,6 +281,7 @@ video {
                 }
             }
 
+            /* button container */
             .button {
                 display: flex;
                 align-items: center;

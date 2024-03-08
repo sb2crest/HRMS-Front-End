@@ -34,7 +34,7 @@ const SideBar = () => {
                     <Link to='/add-employee' style={{ textDecoration: "none" }}>
                         <li>
                             <MdOutlinePersonAddAlt className='icon' />
-                            <span>Add Employee</span>
+                            <span>Add Personnel</span>
                         </li>
                     </Link>
                     <p className="title">Status</p>
