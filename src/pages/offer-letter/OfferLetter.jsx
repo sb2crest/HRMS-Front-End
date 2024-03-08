@@ -14,9 +14,85 @@ const OfferLetter = () => {
     const [department, setDepartment] = useState('');
     const [currentDate, setCurrentDate] = useState('');
 
+    // State variables for validation errors
+    const [employeeError, setEmployeeError] = useState('');
+    const [emailError, setEmailError] = useState('');
+    const [phoneNumberError, setPhoneNumberError] = useState('');
+    const [dojError, setDOJError] = useState('');
+    const [basicSalaryError, setBasicSalaryError] = useState('');
+    const [designationError, setDesignationError] = useState('');
+    const [departmentError, setDepartmentError] = useState('');
+    const [currentDateError, setCurrentDateError] = useState('');
+
+    // Form validation function
+    // Form validation function
+    const validateForm = () => {
+        let isValid = true;
+        if (!employee) {
+            setEmployeeError("Employee Name is required");
+            window.alert("Employee Name is required");
+            isValid = false;
+        } else {
+            setEmployeeError("");
+        }
+        if (!email) {
+            setEmailError("Email is required");
+            window.alert("Email is required");
+            isValid = false;
+        } else {
+            setEmailError("");
+        }
+        if (!phoneNumber) {
+            setPhoneNumberError("Phone Number is required");
+            window.alert("Phone Number is required");
+            isValid = false;
+        } else {
+            setPhoneNumberError("");
+        }
+        if (!doj) {
+            setDOJError("Date of Joining is required");
+            window.alert("Date of Joining is required");
+            isValid = false;
+        } else {
+            setDOJError("");
+        }
+        if (!basicSalary) {
+            setBasicSalaryError("CTC is required");
+            window.alert("CTC is required");
+            isValid = false;
+        } else {
+            setBasicSalaryError("");
+        }
+        if (!designation) {
+            setDesignationError("Designation is required");
+            window.alert("Designation is required");
+            isValid = false;
+        } else {
+            setDesignationError("");
+        }
+        if (!department) {
+            setDepartmentError("Department is required");
+            window.alert("Department is required");
+            isValid = false;
+        } else {
+            setDepartmentError("");
+        }
+        if (!currentDate) {
+            setCurrentDateError("Issued Date is required");
+            window.alert("Issued Date is required");
+            isValid = false;
+        } else {
+            setCurrentDateError("");
+        }
+        return isValid;
+    };
+    
     /* API Integration for PDF Preview */
     const handlePreview = async (e) => {
         e.preventDefault();
+        if (!validateForm()) {
+            return;
+        }
         try {
             const response = await axios.post("http://localhost:8081/offer-letter/preview-letter", {
                 fullName: employee,
@@ -41,6 +117,9 @@ const OfferLetter = () => {
     /* API Integration for PDF Preview */
     const handleSendPDF = async (e) => {
         e.preventDefault();
+        if (!validateForm()) {
+            return;
+        }
         try {
             console.log("Current Date:" + currentDate);
             const response = await axios.post("http://localhost:8081/offer-letter/send", {
