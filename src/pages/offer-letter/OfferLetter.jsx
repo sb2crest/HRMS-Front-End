@@ -107,6 +107,7 @@ const OfferLetter = () => {
                                             className='input'
                                             value={currentDate}
                                             onChange={(e) => setCurrentDate(e.target.value)}
+                                            placeholder='01-Feb-2024'
                                         />
                                         <label className='placeholder'>Issued Date</label>
                                     </div>
@@ -118,7 +119,7 @@ const OfferLetter = () => {
                                             className='input'
                                             value={doj}
                                             onChange={(e) => setDOJ(e.target.value)}
-                                            style={{ width: "180px" }}
+                                            placeholder='01-Feb-2024'
                                         />
                                         <label className='placeholder'>Date of Joining</label>
                                     </div>

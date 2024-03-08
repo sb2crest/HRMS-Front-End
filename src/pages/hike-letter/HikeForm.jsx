@@ -159,6 +159,7 @@ const HikeForm = () => {
                                             className='input'
                                             value={approvedDate}
                                             onChange={(e) => setApprovedDate(e.target.value)}
+                                            placeholder='01-Feb-2024'
                                         />
                                         <label className='placeholder'>Approved Date</label>
                                     </div>
@@ -170,6 +171,7 @@ const HikeForm = () => {
                                             className='input'
                                             value={currentDate}
                                             onChange={(e) => setCurrentDate(e.target.value)}
+                                            placeholder='01-Feb-2024'
                                         />
                                         <label className='placeholder'>Issued Date</label>
                                     </div>
@@ -179,6 +181,7 @@ const HikeForm = () => {
                                             className='input'
                                             value={effectiveDay}
                                             onChange={(e) => setEffectiveDay(e.target.value)}
+                                            placeholder='01-Feb-2024'
                                         />
                                         <label className='placeholder'>Effective Date</label>
                                     </div>

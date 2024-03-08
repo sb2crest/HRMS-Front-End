@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './sidebar.scss';
 import DashboardIcon from '@mui/icons-material/Dashboard';
 import CurrencyRupeeOutlinedIcon from '@mui/icons-material/CurrencyRupeeOutlined';
@@ -11,6 +11,7 @@ import { MdOutlinePersonAddAlt } from "react-icons/md";
 import { SlEnvolopeLetter } from "react-icons/sl";
 import { Link } from 'react-router-dom';
 import { BsGraphUpArrow } from "react-icons/bs";
+import { CgMail } from "react-icons/cg";
 
 const SideBar = () => {
     return (
@@ -57,6 +58,12 @@ const SideBar = () => {
                             <span>Offer Letter</span>
                         </li>
                     </Link>
+                    <li>
+                        <CgMail className='icon' />
+                        <Link to="/appointment" style={{ textDecoration: "none" }}>
+                            <span>Appointment</span>
+                        </Link>
+                    </li>
                     <li>
                         <CurrencyRupeeOutlinedIcon className='icon' />
                         <Link to="/payroll" style={{ textDecoration: "none" }}>
