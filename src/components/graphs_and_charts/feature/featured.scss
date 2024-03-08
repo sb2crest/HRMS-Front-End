@@ -15,7 +15,7 @@
     }
 
     .fc .fc-button-primary {
-        background-color: orange;
+        background-color: lightblue;
         border: none;
         border-radius: 0;
         color: white;
@@ -23,7 +23,7 @@
     }
 
     .fc .fc-button-primary:hover {
-        background-color: orange;
+        background-color: rgb(74, 205, 248);
         border: none;
     }
 
@@ -37,5 +37,15 @@
 
     .fc-h-event .fc-event-title-container {
         padding: 2px;
+        // background-color: rgb(239, 176, 68);
+    }
+
+    .fc .fc-daygrid-day.fc-day-today {
+        background-color: rgb(197, 230, 241);
+    }
+
+    .fc .fc-col-header-cell-cushion {
+        color: gray;
+        font-size: 16px;
     }
 }
