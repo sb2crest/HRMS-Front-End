@@ -34,7 +34,7 @@ video {
 }
 
 /* page style*/
-.offer-letter {
+.appointment {
     width: 100%;
     overflow: hidden;
     display: flex;
@@ -44,9 +44,8 @@ video {
     box-sizing: border-box;
     background-color: #ECF0F4;
 
-    /* form container */
-    .offer-container {
-        height: 70vh;
+    .appointment-container {
+        height: 65vh;
         justify-content: center;
         -webkit-box-shadow: 2px 4px 10px 1px rgba(0, 0, 0, 0.47);
         box-shadow: 2px 4px 10px 1px rgba(201, 201, 201, 0.47);
@@ -93,7 +92,6 @@ video {
                     .input::placeholder{
                         font-size: 12px;
                     }
-
                 }
             }
 
@@ -123,90 +121,6 @@ video {
                     cursor: pointer;
                 }
             }
-        }
-    }
-}
-
-.ctc {
-    margin: 90px 50px;
-
-    .salary-table {
-        border-collapse: collapse;
-        width: 100%;
-    }
-
-    .salary-table th {
-        border: 0.1px solid rgb(108, 107, 107);
-        text-align: left;
-        padding: 15px;
-        font-weight: 700;
-    }
-
-    .salary-table td {
-        border: 0.1px solid gray;
-        text-align: left;
-        padding: 14px;
-    }
-
-    .salary-table tr {
-        color: rgb(55, 54, 54);
-    }
-
-    .header {
-        color: rgb(71, 70, 70);
-        font-size: 15px;
-        font-weight: 500;
-    }
-
-    .main-header {
-        color: black;
-        font-size: 17px;
-        font-weight: 700;
-    }
-
-    .salary-table th {
-        background-color: rgb(191, 235, 250);
-        color: #fff;
-    }
-
-    .money {
-        color: rgb(54, 53, 53);
-        font-weight: 400;
-
-    }
-
-    .gross-money {
-        color: black;
-        font-size: 17px;
-        font-weight: 700;
-    }
-
-    .btn {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        margin: 30px;
-
-        .back {
-            padding: 10px 30px;
-            background-color: rgb(5, 134, 177);
-            border: none;
-            color: #fff;
-            border-radius: 5px;
-            font-size: 15px;
-            font-weight: 600;
-            cursor: pointer;
-        }
-
-        .send {
-            padding: 10px 30px;
-            background-color: rgb(5, 134, 177);
-            border: none;
-            color: #fff;
-            border-radius: 5px;
-            font-size: 15px;
-            font-weight: 600;
-            cursor: pointer;
         }
     }
 }
