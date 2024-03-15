@@ -9,6 +9,7 @@ import OfferLetter from "./pages/offer-letter/OfferLetter";
 import HikeForm from "./pages/hike-letter/HikeForm";
 import AddEmployee from "./pages/add-employee/AddEmployee";
 import Appointment from "./pages/appointment/Appointment";
+import PaySlip from "./pages/payroll/PaySlip";
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
           <Route path="/hikeletter" element={<HikeForm />} />
           <Route path="/add-employee" element={<AddEmployee />} />
           <Route path="/appointment" element={<Appointment />} />
+          <Route path="/payslip" element={<PaySlip />} />
         </Routes>
       </Router>
     </div>

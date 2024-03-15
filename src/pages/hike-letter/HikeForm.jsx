@@ -67,6 +67,7 @@ const HikeForm = () => {
         } else {
             setEffectiveDayError("");
         }
+       
         return isValid;
     };
 
@@ -112,6 +113,7 @@ const HikeForm = () => {
                 employeeId: employee,
                 percentage: percentage,
                 reason: reason,
+                newPosition: newPosition,
                 approvedBy: approvedBy,
                 effectiveDate: effectiveDay,
                 issuedDate: currentDate,
