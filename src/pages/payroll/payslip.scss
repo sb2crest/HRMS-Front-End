@@ -34,7 +34,7 @@ video {
 }
 
 /* page style*/
-.hike {
+.payslip {
     width: 100%;
     border-radius: 0px;
     overflow: hidden;
@@ -45,17 +45,16 @@ video {
     box-sizing: border-box;
     background-color: #ECF0F4;
 
-    /* form container */
-    .hike-letter {
-        height: 95vh;
+    .payslip-form {
         justify-content: center;
         -webkit-box-shadow: 2px 4px 10px 1px rgba(0, 0, 0, 0.47);
         box-shadow: 2px 4px 10px 1px rgba(201, 201, 201, 0.47);
         background-color: #fff;
-        margin-bottom: 30px;
         border-radius: 10px;
 
         .form {
+            margin-top: 25px;
+
             .field-container {
                 .input-container {
                     position: relative;
@@ -92,15 +91,6 @@ video {
                         border: 1px solid #02407f;
                     }
 
-                    .checkbox {
-                        width: 18px;
-                        height: 20px;
-                        cursor: pointer;
-                        outline: none;
-                        vertical-align: middle;
-                        position: relative;
-                    }
-
                     .label-for-promotion {
                         padding: 5px;
                         font-size: 14px;
@@ -119,7 +109,7 @@ video {
                 display: flex;
                 align-items: center;
                 justify-content: space-between;
-                margin: 25px;
+                margin: 20px;
 
                 .back-button {
                     padding: 10px 30px;
@@ -129,6 +119,7 @@ video {
                     font-size: 15px;
                     font-weight: 600;
                     cursor: pointer;
+                    border-radius: 5px;
                 }
 
                 .save-button {
@@ -139,6 +130,7 @@ video {
                     font-size: 15px;
                     font-weight: 600;
                     cursor: pointer;
+                    border-radius: 5px;
                 }
             }
 
@@ -152,13 +144,19 @@ video {
 
             .select {
                 margin: 8px 30px;
-                padding: 5px;
+                padding-top: 10px;
+                padding-bottom: 10px;
+                padding-left: 0px;
+                padding-right: 65px;
                 box-sizing: border-box;
                 outline: none;
-                border: 1px solid rgb(62, 61, 61);
+                border: 1px solid rgb(103, 101, 101);
+                border-radius: 5px;
+                font-size: 14.5px;
+                color: rgb(62, 61, 61);
 
                 .option {
-                    font-size: 12.5px;
+                    font-size: 14px;
                 }
             }
 

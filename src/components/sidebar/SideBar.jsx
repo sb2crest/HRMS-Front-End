@@ -12,6 +12,7 @@ import { SlEnvolopeLetter } from "react-icons/sl";
 import { Link } from 'react-router-dom';
 import { BsGraphUpArrow } from "react-icons/bs";
 import { CgMail } from "react-icons/cg";
+import { FaWpforms } from "react-icons/fa6";
 
 const SideBar = () => {
     return (
@@ -64,18 +65,25 @@ const SideBar = () => {
                             <span>Appointment</span>
                         </Link>
                     </li>
-                    <li>
-                        <CurrencyRupeeOutlinedIcon className='icon' />
-                        <Link to="/payroll" style={{ textDecoration: "none" }}>
-                            <span>Payroll</span>
-                        </Link>
-                    </li>
                     <Link to='/hikeletter' style={{ textDecoration: "none" }}>
                         <li>
                             <BsGraphUpArrow className='icon' />
                             <span>Hike Letter</span>
                         </li>
                     </Link>
+                    <p className="title">PAYROLL SERVICES</p>
+                    <li>
+                        <CurrencyRupeeOutlinedIcon className='icon' />
+                        <Link to="/payroll" style={{ textDecoration: "none" }}>
+                            <span>Payroll</span>
+                        </Link>
+                    </li>
+                    <li>
+                        <FaWpforms className='icon' />
+                        <Link to="/payslip" style={{ textDecoration: "none" }}>
+                            <span>Payslip</span>
+                        </Link>
+                    </li>
                     <p className="title">ADMIN</p>
                     <Link to='/' style={{ textDecoration: "none" }}>
                         <li>
