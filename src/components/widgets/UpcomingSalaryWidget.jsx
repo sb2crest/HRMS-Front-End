@@ -9,7 +9,7 @@ const UpcomingSalaryWidget = ({ upcomingSalaryDate }) => {
     if (!dateFormatRegex.test(upcomingSalaryDate)) {
         return <div className='upcoming-widget'>Invalid Date Format</div>;
     }
-    const [_, day, month, year] = upcomingSalaryDate.match(dateFormatRegex);
+    const [ day, month, year] = upcomingSalaryDate.match(dateFormatRegex);
     const getMonthName = (monthNum) => {
         const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
         return months[parseInt(monthNum, 10) - 1];

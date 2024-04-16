@@ -94,7 +94,7 @@ const OfferLetter = () => {
             return;
         }
         try {
-            const response = await axios.post("http://localhost:8081/offer-letter/preview-letter", {
+            const response = await axios.post("http://hrm-service-BE-2051988075.ap-south-1.elb.amazonaws.com/offer-letter/preview-letter", {
                 fullName: employee,
                 email: email,
                 phoneNumber: phoneNumber,
@@ -122,7 +122,7 @@ const OfferLetter = () => {
         }
         try {
             console.log("Current Date:" + currentDate);
-            const response = await axios.post("http://localhost:8081/offer-letter/send", {
+            const response = await axios.post("http://hrm-service-BE-2051988075.ap-south-1.elb.amazonaws.com/offer-letter/send", {
                 fullName: employee,
                 email: email,
                 phoneNumber: phoneNumber,

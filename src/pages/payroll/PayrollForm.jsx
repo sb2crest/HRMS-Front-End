@@ -57,7 +57,7 @@ const PayrollForm = () => {
     const handleGetNameByID = async (inputValue) => {
         console.log("emp ID:" + inputValue);
         try {
-            const response = await axios.get(`http://localhost:8081/employee/get-by-id?empId=${inputValue}`);
+            const response = await axios.get(`http://hrm-service-BE-2051988075.ap-south-1.elb.amazonaws.com/employee/get-by-id?empId=${inputValue}`);
             setEmployee(response.data.employeeName);
         } catch (error) {
             console.log("Error in fetching employee name:", error);
@@ -77,7 +77,7 @@ const PayrollForm = () => {
         const validationErrors = validateInputs();
         if (Object.keys(validationErrors).length === 0) {
             try {
-                const response = await axios.post('http://localhost:8081/admin/preview-new-payslip', {
+                const response = await axios.post('http://hrm-service-BE-2051988075.ap-south-1.elb.amazonaws.com/admin/preview-new-payslip', {
                     employeeId: employeeID,
                     payPeriod: payperiod,
                     payDate: payDate,
@@ -127,7 +127,7 @@ const PayrollForm = () => {
         const validationErrors = validateInputs();
         if (Object.keys(validationErrors).length === 0) {
             try {
-                const response = await axios.post('http://localhost:8081/admin/add-new-payroll', {
+                const response = await axios.post('http://hrm-service-BE-2051988075.ap-south-1.elb.amazonaws.com/admin/add-new-payroll', {
                     employeeId: employeeID,
                     payPeriod: payperiod,
                     payDate: payDate,

@@ -25,6 +25,10 @@ const AddEmployee = () => {
     const [newJoinee, setnewJoinee] = useState(false);
     const [role, setRole] = useState(false);
 
+
+    // eslint-disable-next-line no-use-before-define
+    console.log(newJoinee,errors);
+
     const handleExist = (e) => {
         e.preventDefault();
         setAlreadyExisting(true);
@@ -66,13 +70,14 @@ const AddEmployee = () => {
         return newErrors;
     };
 
+    // eslint-disable-next-line no-lone-blocks
     {/*API Call for Saving an Employee */ }
     const handleSave = async (e) => {
         e.preventDefault();
         const newErrors = validateFormData();
         if (Object.keys(newErrors).length === 0) {
             try {
-                const response = await axios.post('http://localhost:8081/admin/add', {
+                const response = await axios.post('http://hrm-service-BE-2051988075.ap-south-1.elb.amazonaws.com/admin/add', {
                     employeeName: name,
                     designation: designation,
                     location: location,
@@ -97,6 +102,7 @@ const AddEmployee = () => {
         }
     };
 
+    // eslint-disable-next-line no-lone-blocks
     {/* Clear Form */ }
     const handleClear = (e) => {
         e.preventDefault();
@@ -111,6 +117,7 @@ const AddEmployee = () => {
         setGrossSalary("");
     }
 
+    // eslint-disable-next-line no-lone-blocks
     {/* Select Role */ }
     const handleGoBack = (e) => {
         e.preventDefault();

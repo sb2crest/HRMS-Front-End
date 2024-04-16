@@ -13,62 +13,69 @@ const Appointment = () => {
     const [email, setEmail] = useState('');
     const [name, setName] = useState('');
 
-    // State variables for validation errors
-    const [employeeError, setEmployeeError] = useState('');
-    const [currentDateError, setCurrentDateError] = useState('');
-    const [emailError, setEmailError] = useState('');
-    const [designationError, setDesignationError] = useState('');
-    const [updatedDesignationError, setUpdatedDesignationError] = useState('');
-    const [basicSalaryError, setBasicSalaryError] = useState('');
-    const [updatedBasicSalaryError, setUpdatedBasicSalaryError] = useState('');
+    // // State variables for validation errors
+    // const [employeeError, setEmployeeError] = useState('');
+    // const [currentDateError, setCurrentDateError] = useState('');
+    // const [emailError, setEmailError] = useState('');
+    // const [designationError, setDesignationError] = useState('');
+    // const [updatedDesignationError, setUpdatedDesignationError] = useState('');
+    // const [basicSalaryError, setBasicSalaryError] = useState('');
+    // const [updatedBasicSalaryError, setUpdatedBasicSalaryError] = useState('');
 
-    // Form validation function
-    const validateForm = () => {
-        let isValid = true;
-        if (!employee) {
-            setEmployeeError("Employee ID is required");
-            isValid = false;
-        } else {
-            setEmployeeError("");
-        }
-        if (!currentDate) {
-            setCurrentDateError("Issued Date is required");
-            isValid = false;
-        } else {
-            setCurrentDateError("");
-        }
-        if (!email) {
-            setEmailError("Email ID is required");
-            isValid = false;
-        } else {
-            setEmailError("");
-        }
-        if (!designation) {
-            setDesignationError("Designation is required");
-            isValid = false;
-        } else {
-            setDesignationError("");
-        }
-        if (!updated_designation) {
-            setUpdatedDesignationError("Updated Designation is required");
-            isValid = false;
-        } else {
-            setUpdatedDesignationError("");
-        }
-        if (!basicSalary) {
-            setBasicSalaryError("Basic Salary is required");
-            isValid = false;
-        } else {
-            setBasicSalaryError("");
-        }
-        if (!updated_basicSalary) {
-            setUpdatedBasicSalaryError("Updated Salary is required");
-            isValid = false;
-        } else {
-            setUpdatedBasicSalaryError("");
-        }
-        return isValid;
-    };
+    // // Form validation function
+    // const validateForm = () => {
+    //     let isValid = true;
+    //     if (!employee) {
+    //         setEmployeeError("Employee ID is required");
+    //         isValid = false;
+    //         console.log(employeeError);
+    //     } else {
+    //         setEmployeeError("");
+    //     }
+    //     if (!currentDate) {
+    //         setCurrentDateError("Issued Date is required");
+    //         isValid = false;
+    //         console.log(currentDateError);
+    //     } else {
+    //         setCurrentDateError("");
+    //     }
+    //     if (!email) {
+    //         setEmailError("Email ID is required");
+    //         isValid = false;
+    //         console.log(emailError);
+    //     } else {
+    //         setEmailError("");
+    //     }
+    //     if (!designation) {
+    //         setDesignationError("Designation is required");
+    //         isValid = false;
+    //         console.log(designationError);
+    //     } else {
+    //         setDesignationError("");
+    //     }
+    //     if (!updated_designation) {
+    //         setUpdatedDesignationError("Updated Designation is required");
+    //         isValid = false;
+    //         console.log(updatedDesignationError);
+    //     } else {
+    //         setUpdatedDesignationError("");
+    //     }
+    //     if (!basicSalary) {
+    //         setBasicSalaryError("Basic Salary is required");
+    //         isValid = false;
+    //         console.log(basicSalaryError);
+    //     } else {
+    //         setBasicSalaryError("");
+    //     }
+    //     if (!updated_basicSalary) {
+    //         setUpdatedBasicSalaryError("Updated Salary is required");
+    //         isValid = false;
+    //         console.log(updatedBasicSalaryError);
+    //     } else {
+    //         setUpdatedBasicSalaryError("");
+    //     }
+    //     return isValid;
+    // };
 
     return (
         <div style={{ display: "flex" }}>
