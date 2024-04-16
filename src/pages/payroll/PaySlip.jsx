@@ -7,6 +7,8 @@ const PaySlip = () => {
     // State variables for form
     const [employeeID, setEmployeeID] = useState("");
     const [employeeName, setEmployeeName] = useState("");
+    const [paymonth, setPayMonth] = useState("");
+    const [payDate, setPayDate] = useState("");
     const [selectedOption, setSelectedOption] = useState("Select");
     const [payMonthVisible, setPayMonthVisible] = useState(true);
 
@@ -24,7 +26,7 @@ const PaySlip = () => {
     const handleGetNameByID = async (inputValue) => {
         console.log("emp ID:" + inputValue);
         try {
-            const response = await axios.get(`http://localhost:8081/employee/get-by-id?empId=${inputValue}`);
+            const response = await axios.get(`http://hrm-service-BE-2051988075.ap-south-1.elb.amazonaws.com/employee/get-by-id?empId=${inputValue}`);
             setEmployeeName(response.data.employeeName);
         } catch (error) {
             console.log("Error in fetching employee name:", error);
@@ -36,6 +38,26 @@ const PaySlip = () => {
         const employeeid = e.target.value;
         setEmployeeID(employeeid);
         handleGetNameByID(employeeid);
+    }
+
+    {/* API call for fetching monthly payslip */ }
+    const handleFetchMonthlyPayslip = async (e) => {
+        e.preventDefault();
+        try {
+            const response = await axios.get(`http://hrm-service-BE-2051988075.ap-south-1.elb.amazonaws.com/salary/payslip-pdf?employeeId=${employeeID}&payPeriod=${paymonth}`,
+                {
+                    responseType: 'blob'
+                }
+            )
+            const data = response.data;
+            const blob = new Blob([data], { type: 'application/pdf' });
+            const url = URL.createObjectURL(blob);
+            window.open(url, '_blank');
+        }
+        catch (error) {
+            console.log("Error in fetching monthly payslip: ", error);
+        }
+
     }
 
     return (
@@ -85,6 +107,8 @@ const PaySlip = () => {
                                                 type='text'
                                                 className='input'
                                                 placeholder='March 2024'
+                                                value={paymonth}
+                                                onChange={(e) => setPayMonth(e.target.value)}
                                             />
                                             <label className='placeholder'>Pay Month</label>
                                         </div>
@@ -93,6 +117,8 @@ const PaySlip = () => {
                                                 type='text'
                                                 className='input'
                                                 placeholder='01-Mar-2024'
+                                                value={payDate}
+                                                onChange={(e) => setPayDate(e.target.value)}
                                             />
                                             <label className='placeholder'>Pay Date</label>
                                         </div>
@@ -128,6 +154,7 @@ const PaySlip = () => {
                                 </button>
                                 <button
                                     className='save-button'
+                                    onClick={handleFetchMonthlyPayslip}
                                 >
                                     Preview PDF
                                 </button>

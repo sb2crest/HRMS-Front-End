@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React, { useState } from 'react';
 import './hikeform.scss';
 import axios from 'axios';
@@ -12,6 +13,7 @@ const HikeForm = () => {
     const [effectiveDay, setEffectiveDay] = useState("");
     const [reason, setReason] = useState("");
     const [promotionStatus, setPromotionStatus] = useState(false);
+    // eslint-disable-next-line no-unused-vars
     const [emailsent, setEmailSent] = useState(false);
     const [presentDesignation, setPresentDesignation] = useState("");
     const [newPosition, setNewPosition] = useState(null);
@@ -29,6 +31,7 @@ const HikeForm = () => {
         setPromotionStatus(true);
     }
 
+    // eslint-disable-next-line no-lone-blocks
     {/* Dropdown Function */ }
     function updateTextField() {
         var dropdown = document.getElementById("myDropdown");
@@ -72,6 +75,7 @@ const HikeForm = () => {
     };
 
 
+    // eslint-disable-next-line no-lone-blocks
     {/* API Call for Previewing the PDF */ }
     const handlePreview = async (e) => {
         e.preventDefault();
@@ -79,7 +83,7 @@ const HikeForm = () => {
             return;
         }
         try {
-            const response = await axios.post('http://localhost:8081/admin/preview-hike', {
+            const response = await axios.post('http://hrm-service-BE-2051988075.ap-south-1.elb.amazonaws.com/preview-hike', {
                 employeeId: employee,
                 percentage: percentage,
                 reason: reason,
@@ -102,6 +106,7 @@ const HikeForm = () => {
         }
     }
 
+    // eslint-disable-next-line no-lone-blocks
     {/* API Call for Sending Email the PDF */ }
     const handleSendEmail = async (e) => {
         e.preventDefault();
@@ -109,7 +114,7 @@ const HikeForm = () => {
             return;
         }
         try {
-            const response = await axios.post('http://localhost:8081/admin/update-hike', {
+            const response = await axios.post('http://hrm-service-BE-2051988075.ap-south-1.elb.amazonaws.com/admin/update-hike', {
                 employeeId: employee,
                 percentage: percentage,
                 reason: reason,
@@ -129,12 +134,13 @@ const HikeForm = () => {
         }
     }
 
+    // eslint-disable-next-line no-lone-blocks
     {/* API Call for getting designation of an employee */ }
     const handleGetDesignation = async (e) => {
         const inputValue = e.target.value;
         setEmployee(inputValue);
         try {
-            const response = await axios.get(`http://localhost:8081/admin/get-designation/${inputValue}`);
+            const response = await axios.get(`http://hrm-service-BE-2051988075.ap-south-1.elb.amazonaws.com/admin/get-designation/${inputValue}`);
             console.log("Present Designation:" + response.data);
             setPresentDesignation(response.data);
         }

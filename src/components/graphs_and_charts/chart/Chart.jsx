@@ -13,7 +13,7 @@ const Chart = () => {
     /* API Integration for Fetching Data */
     const getPayrollData = async () => {
         try {
-            const response = await axios.get('http://localhost:8081/admin/salary-graph');
+            const response = await axios.get('http://hrm-service-BE-2051988075.ap-south-1.elb.amazonaws.com/admin/salary-graph');
             const responseData = response.data;
             console.log("responseData for payroll history:", responseData);
             const newData = [

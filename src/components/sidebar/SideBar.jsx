@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './sidebar.scss';
 import DashboardIcon from '@mui/icons-material/Dashboard';
 import CurrencyRupeeOutlinedIcon from '@mui/icons-material/CurrencyRupeeOutlined';

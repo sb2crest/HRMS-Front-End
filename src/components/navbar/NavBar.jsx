@@ -13,7 +13,7 @@ const NavBar = ({ currentDate }) => {
   if (!dateFormatRegex.test(currentDate)) {
     return <div className='upcoming-widget'>Invalid Date Format</div>;
   }
-  const [_, day, month, year] = currentDate.match(dateFormatRegex);
+  const [day, month, year] = currentDate.match(dateFormatRegex);
   const getMonthName = (monthNum) => {
     const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
     return months[parseInt(monthNum, 10) - 1];
