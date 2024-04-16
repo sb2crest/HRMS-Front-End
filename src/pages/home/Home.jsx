@@ -23,7 +23,7 @@ const Home = () => {
 
   const loadDetails = async () => {
     try {
-      const response = await axios.get('http://hrm-service-BE-2051988075.ap-south-1.elb.amazonaws.com/admin');
+      const response = await axios.get('http://hrm-service-be-1998239514.ap-south-1.elb.amazonaws.com/admin');
       const responseData = response.data;
       setAverageSalary(parseFloat(responseData.averageSalary));
       setNoOfEmployees(responseData.noOfEmployees);

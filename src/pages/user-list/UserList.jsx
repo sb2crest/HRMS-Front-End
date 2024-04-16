@@ -77,7 +77,7 @@ const UserList = () => {
     {/* API Call for Showing employee List */ }
     const handleShowList = async () => {
         try {
-            const response = await axios.get('http://hrm-service-BE-2051988075.ap-south-1.elb.amazonaws.com/admin/all');
+            const response = await axios.get('http://hrm-service-be-1998239514.ap-south-1.elb.amazonaws.com/admin/all');
             console.log("Employee list:", response.data);
             const mappedRows = response.data.map((employee, index) => ({
                 id: index + 1,

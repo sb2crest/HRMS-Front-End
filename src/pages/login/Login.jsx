@@ -35,7 +35,7 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://hrm-service-BE-2051988075.ap-south-1.elb.amazonaws.com/auth/login', {
+      const response = await axios.post('http://hrm-service-be-1998239514.ap-south-1.elb.amazonaws.com/auth/login', {
         empId: empId,
         password: password
       });

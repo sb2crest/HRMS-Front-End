@@ -26,7 +26,7 @@ const PaySlip = () => {
     const handleGetNameByID = async (inputValue) => {
         console.log("emp ID:" + inputValue);
         try {
-            const response = await axios.get(`http://hrm-service-BE-2051988075.ap-south-1.elb.amazonaws.com/employee/get-by-id?empId=${inputValue}`);
+            const response = await axios.get(`http://hrm-service-be-1998239514.ap-south-1.elb.amazonaws.com/employee/get-by-id?empId=${inputValue}`);
             setEmployeeName(response.data.employeeName);
         } catch (error) {
             console.log("Error in fetching employee name:", error);
@@ -44,7 +44,7 @@ const PaySlip = () => {
     const handleFetchMonthlyPayslip = async (e) => {
         e.preventDefault();
         try {
-            const response = await axios.get(`http://hrm-service-BE-2051988075.ap-south-1.elb.amazonaws.com/salary/payslip-pdf?employeeId=${employeeID}&payPeriod=${paymonth}`,
+            const response = await axios.get(`http://hrm-service-be-1998239514.ap-south-1.elb.amazonaws.com/salary/payslip-pdf?employeeId=${employeeID}&payPeriod=${paymonth}`,
                 {
                     responseType: 'blob'
                 }
