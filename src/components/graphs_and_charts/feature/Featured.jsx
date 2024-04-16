@@ -12,7 +12,7 @@ const Featured = () => {
     // API Call for getting monthly events
     const handleGetEvents = async () => {
         try {
-            const response = await axios.get('http://hrm-service-BE-2051988075.ap-south-1.elb.amazonaws.com/calendar/events-by-month?month=March 2024');
+            const response = await axios.get('http://hrm-service-be-1998239514.ap-south-1.elb.amazonaws.com/calendar/events-by-month?month=March 2024');
             const formattedEvents = response.data.reduce((acc, event) => {
                 const date = moment(event.date).format('YYYY-MM-DD');
                 acc[date] = [...(acc[date] || []), { title: event.event }];

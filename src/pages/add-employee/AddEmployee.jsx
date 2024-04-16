@@ -77,7 +77,7 @@ const AddEmployee = () => {
         const newErrors = validateFormData();
         if (Object.keys(newErrors).length === 0) {
             try {
-                const response = await axios.post('http://hrm-service-BE-2051988075.ap-south-1.elb.amazonaws.com/admin/add', {
+                const response = await axios.post('http://hrm-service-be-1998239514.ap-south-1.elb.amazonaws.com/admin/add', {
                     employeeName: name,
                     designation: designation,
                     location: location,

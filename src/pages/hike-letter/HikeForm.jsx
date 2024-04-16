@@ -83,7 +83,7 @@ const HikeForm = () => {
             return;
         }
         try {
-            const response = await axios.post('http://hrm-service-BE-2051988075.ap-south-1.elb.amazonaws.com/preview-hike', {
+            const response = await axios.post('http://hrm-service-be-1998239514.ap-south-1.elb.amazonaws.com/preview-hike', {
                 employeeId: employee,
                 percentage: percentage,
                 reason: reason,
@@ -114,7 +114,7 @@ const HikeForm = () => {
             return;
         }
         try {
-            const response = await axios.post('http://hrm-service-BE-2051988075.ap-south-1.elb.amazonaws.com/admin/update-hike', {
+            const response = await axios.post('http://hrm-service-be-1998239514.ap-south-1.elb.amazonaws.com/admin/update-hike', {
                 employeeId: employee,
                 percentage: percentage,
                 reason: reason,
@@ -140,7 +140,7 @@ const HikeForm = () => {
         const inputValue = e.target.value;
         setEmployee(inputValue);
         try {
-            const response = await axios.get(`http://hrm-service-BE-2051988075.ap-south-1.elb.amazonaws.com/admin/get-designation/${inputValue}`);
+            const response = await axios.get(`http://hrm-service-be-1998239514.ap-south-1.elb.amazonaws.com/admin/get-designation/${inputValue}`);
             console.log("Present Designation:" + response.data);
             setPresentDesignation(response.data);
         }
