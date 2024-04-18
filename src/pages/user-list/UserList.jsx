@@ -1,3 +1,4 @@
+/* eslint-disable no-lone-blocks */
 import './list.scss';
 import { useEffect, useState } from 'react';
 import { DataGrid } from '@mui/x-data-grid';

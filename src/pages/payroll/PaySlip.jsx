@@ -1,3 +1,4 @@
+/* eslint-disable no-lone-blocks */
 import React, { useState } from 'react';
 import './payslip.scss';
 import SideBar from '../../components/sidebar/SideBar';

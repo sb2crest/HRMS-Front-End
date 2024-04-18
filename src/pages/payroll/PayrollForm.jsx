@@ -1,3 +1,6 @@
+/* eslint-disable react-hooks/exhaustive-deps */
+/* eslint-disable no-lone-blocks */
+/* eslint-disable no-unused-vars */
 import React, { useEffect, useState } from 'react';
 import './payroll.scss';
 import axios from 'axios';
