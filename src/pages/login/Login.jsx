@@ -1,3 +1,5 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
+/* eslint-disable jsx-a11y/alt-text */
 import React, { useState } from 'react';
 import './login.scss';
 import video from '../../images/video-login.gif';
@@ -18,6 +20,7 @@ const Login = () => {
   const [employee, setEmployee] = useState(false);
   const [empId, setEmpId] = useState('');
   const [password, setPassword] = useState('');
+  // eslint-disable-next-line no-unused-vars
   const [error, setError] = useState('');
   const [redirect, setredirect] = useState(false);
 
