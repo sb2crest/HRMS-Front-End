@@ -26,8 +26,7 @@ const AddEmployee = () => {
     const [role, setRole] = useState(false);
 
 
-    // eslint-disable-next-line no-use-before-define
-    console.log(newJoinee,errors);
+   
 
     const handleExist = (e) => {
         e.preventDefault();
@@ -55,6 +54,9 @@ const AddEmployee = () => {
 
     /* form validation */
     const [errors, setErrors] = useState({});
+
+     // eslint-disable-next-line no-use-before-define
+     console.log(newJoinee,errors);
 
     const validateFormData = () => {
         const newErrors = {};
